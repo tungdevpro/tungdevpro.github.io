@@ -1,0 +1,120 @@
+:root {
+  --p1: #2a85ff;
+  --p2: #83bf6e;
+  --p3: #ff6a55;
+  --p4: #8e59ff;
+  --s1: #ffbc99;
+  --s2: #cabdff;
+  --s3: #b1e5fc;
+  --s4: #b5e4ca;
+  --s5: #ffd88d;
+
+  --n: #ffffff;
+  --n1: #141416;
+  --n2: #23262f;
+  --n3: #353945;
+  --n4: #777e90;
+  --n5: #b1b5c3;
+  --n6: #e6e8ec;
+  --n7: #f4f5f6;
+  --n8: #fcfcfd;
+
+  --shades1: #9a9fa5;
+  --shades2: #6f767e;
+  --shades3: rgba(#6f767e, 0.4);
+  --shades4: rgba(#111315, 0.9);
+}
+
+.body {
+  font-size: 24px;
+  line-height: (32/24);
+  letter-spacing: -0.01em;
+  color: var(--n4);
+  font-weight: 400;
+}
+
+.body-bold {
+  font-size: 24px;
+  line-height: (32/24);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--n2);
+}
+
+.body-2 {
+  font-size: 16px;
+  line-height: (24/16);
+  color: var(--n4);
+  font-weight: 400;
+}
+
+.body-2-bold {
+  font-size: 16px;
+  line-height: (24/16);
+  font-weight: 600;
+}
+
+.caption {
+  font-size: 14px;
+  line-height: (24/14);
+  color: var(--n4);
+  /* color: #fff; */
+  font-weight: 400;
+}
+
+.caption-bold {
+  font-size: 14px;
+  line-height: (24/14);
+  font-weight: 500;
+}
+
+.caption-2 {
+  font-size: 12px;
+  line-height: (20/12);
+  color: var(--n4);
+  font-weight: 400;
+}
+
+.caption-2-bold {
+  font-size: 12px;
+  line-height: (20/12);
+  font-weight: 600;
+}
+
+.hairline {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hairline-2 {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button-default {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.button-2 {
+  font-size: 14px;
+  line-height: (16/14);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .body {
+    font-size: 16px;
+    line-height: (24/16);
+  }
+
+  .hairline {
+    font-size: 12px;
+    line-height: 1;
+  }
+}

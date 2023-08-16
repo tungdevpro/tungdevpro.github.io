@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title {
+  position: absolute;
+}
+
+.text {
+  color: var(--n6);
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+}

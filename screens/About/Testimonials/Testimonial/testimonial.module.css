@@ -1,0 +1,49 @@
+.container {
+  background-color: var(--p1);
+  padding: 60px;
+  border-radius: 8px;
+}
+
+.title {
+  color: var(--n8);
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  color: var(--n6);
+  margin-bottom: 32px;
+}
+
+.image {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.author_container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.content {
+  display: grid;
+  grid-gap: 8px;
+}
+
+.author {
+  color: var(--n8);
+}
+
+.position {
+  color: var(--n6);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 48px;
+  }
+}

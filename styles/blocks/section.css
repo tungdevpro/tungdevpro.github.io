@@ -1,0 +1,21 @@
+[class~="section"] {
+  padding: 128px 0;
+}
+
+.section-bg {
+  background: blue;
+}
+
+.section-pb {
+  padding-top: 0;
+}
+
+.section-pt {
+  padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 90px 0;
+  }
+}

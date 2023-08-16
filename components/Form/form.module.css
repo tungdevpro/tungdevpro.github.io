@@ -1,0 +1,46 @@
+.container {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.input {
+  padding: 12px;
+  border: 2px solid var(--n6);
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.message {
+  padding: 12px;
+  height: 90px;
+  border: 2px solid var(--n6);
+  width: 100%;
+  border-radius: 8px;
+}
+
+.select {
+  padding: 12px;
+  height: 44px;
+  border: 2px solid var(--n6);
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Remove default arrow */
+}
+
+.text {
+  margin-top: 32px;
+}
+
+.button {
+  margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+  .button {
+    width: 100%;
+  }
+}

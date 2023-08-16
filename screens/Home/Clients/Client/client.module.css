@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background-color: var(--n8);
+  border-radius: 8px;
+}
+
+.container svg {
+  fill: var(--n4);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.container:hover svg {
+  fill: var(--n2);
+}

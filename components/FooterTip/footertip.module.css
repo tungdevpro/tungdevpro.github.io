@@ -1,0 +1,21 @@
+.container {
+  padding: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.author {
+  color: var(--p1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .title {
+    margin-bottom: 16px;
+  }
+}

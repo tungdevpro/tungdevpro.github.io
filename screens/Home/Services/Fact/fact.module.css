@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.icon {
+  fill: var(--p1);
+}
