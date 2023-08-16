@@ -5,43 +5,37 @@ import { motion } from "framer-motion";
 import { variants, item } from "../../../variants/animation";
 import Card from "../../../components/Card";
 import ScrollAnimation from "../../../components/ScrollAnimation";
+import Project from "../../Home/Projects/Project";
 
 const services = [
   {
-    icon: "paint-bucket",
-    title: "UI-X Design",
-    subtitle:
-      "Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet estsed ut euismod.",
-  },
-  {
-    icon: "plugin",
+    icon: "diamond",
     title: "App Development",
     subtitle:
-      "Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet estsed ut euismod.",
+      "Technology Stack: Flutter, Dart, Bloc(Provider, GetX), Firebase &  Android Jetpack Compose",
   },
   {
     icon: "globe",
     title: "Web Development",
-    subtitle:
-      "Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet estsed ut euismod.",
+    subtitle: "Technology Stack: JavaScript, VueJs, Webpack, Vites, Boostrap 5, Golang & Gin",
+  }
+];
+
+const projects = [
+  {
+    embed: "WVWxPIzEM3A",
+    image: "/images/projects/proj_yh_shop.png",
+    title: "YH Shop",
   },
   {
-    icon: "zoom-check",
-    title: "Research",
-    subtitle:
-      "Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet estsed ut euismod.",
+    embed: "WVWxPIzEM3A",
+    image: "/images/projects/proj_coffee_house.png",
+    title: "Coffee house",
   },
   {
-    icon: "shield-check",
-    title: "Hosting",
-    subtitle:
-      "Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet estsed ut euismod.",
-  },
-  {
-    icon: "speed-test",
-    title: "Deployment",
-    subtitle:
-      "Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet estsed ut euismod.",
+    embed: "WVWxPIzEM3A",
+    image: "/images/projects/proj_bookz.png",
+    title: "Bookz",
   },
 ];
 
@@ -60,20 +54,25 @@ const Hero = () => {
           <motion.h1 variants={item} className={cn("hero", styles.title)}>
             Services
           </motion.h1>
-          <motion.p variants={item} className={cn("body", styles.subtitle)}>
-            Pellentesque tincidunt tristique neque, eget venenatis enim gravida
-            quis. Fusce at egestas libero. Cras convallis egestas ullamcorper
-            suspens.
-          </motion.p>
+   
         </div>
 
+        <div className={`${styles.wrapper} ${styles.mb}`}>
+          {projects.map((item, index) => (
+            <ScrollAnimation>
+              <Project key={index} {...item} />
+            </ScrollAnimation>
+          ))}
+        </div>
+        
+{/* 
         <div className={styles.wrapper}>
           {services.map((item, index) => (
             <ScrollAnimation>
               <Card key={index} {...item} />
             </ScrollAnimation>
           ))}
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

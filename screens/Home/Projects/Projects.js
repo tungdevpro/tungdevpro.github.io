@@ -32,7 +32,7 @@ const Projects = () => {
             <TextOverlap title="Projects" text="Projects" />
           </div>
           <Link href="/services">
-            <a className={cn("button-small", styles.button)}>View Pricing</a>
+            <a className={cn("button-small", styles.button)}>View Project</a>
           </Link>
         </div>
 

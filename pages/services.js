@@ -20,14 +20,14 @@ export default function Services({ allNewsData }) {
   return (
     <Layout>
       <Hero />
-      <Pricing />
-      <CTA
+      {/* <Pricing /> */}
+      {/* <CTA
         number="02"
         background="#92A5EF"
         title="30% Discount"
         button="Learn More"
-      />
-      <News allNewsData={allNewsData} number="03" />
+      /> */}
+      {/* <News allNewsData={allNewsData} number="03" /> */}
     </Layout>
   );
 }
