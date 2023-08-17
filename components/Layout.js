@@ -8,8 +8,8 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Head>
-        <title>Tungdm - Mobile App Development</title>
-        <meta name="description" content="Tungdm - Mobile App Development - Make things complicated :))" />
+        <title>Tung Do Minh - Mobile App Development</title>
+        <meta name="description" content="Tung Do Minh - Mobile App Development - Make things complicated :))" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />

@@ -1,7 +1,7 @@
 ---
 image: "/images/vuejs.jpg"
 title: "Some cool stuff in Vue 3"
-intro: "Duis"
+intro: "Vue 3"
 tag: "vuejs"
 date: "2023-08-15"
 ---
@@ -12,3 +12,6 @@ date: "2023-08-15"
 
 ### Difference between watch and computed
   + Computed always has to return, computed always depends on the value, when the value changes, computed is called
+
+
+Thank for reading
