@@ -36,7 +36,7 @@ const Hero = () => {
           </motion.h1>
           <motion.p variants={item} className={cn("body", styles.subtitle)}>
           Mobile app interface design for over{" "}
-            <span className={cn("body-bold", styles.text)}>3 years</span> and  <span className={cn("body-bold", styles.text)}>1.5 years</span> developing website
+            <span className={cn("body-bold", styles.text)}>3 years</span> and  <span className={cn("body-bold", styles.text)}>1 year</span> developing website
           </motion.p>
           <div className={styles.wrapper}>
             <Link href="/contact">
