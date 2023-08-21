@@ -21,9 +21,13 @@ const items = [
     number: "#2",
     title: "Education",
     subtitle:
-      "I used to go to university (VNU University of Engineering and Technology), majoring in Engineering Physics. ",
+      "I used to go to university (VNU University of Engineering and Technology), majoring in Engineering Physics.",
   },
 ];
+
+const handleClick = () => {
+  console.log('log...........');
+}
 
 const Hero = () => {
   return (
@@ -62,7 +66,7 @@ const Hero = () => {
             </div>
             <ScrollAnimation>
               <AnchorLink to="learnmore" smooth={true}>
-                <button className={cn("button", styles.button)}>
+                <button onClick={handleClick} className={cn("button", styles.button)}>
                   Learn More
                 </button>
               </AnchorLink>

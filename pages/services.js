@@ -1,8 +1,6 @@
 import React from "react";
-import CTA from "../components/CTA";
 import Layout from "../components/Layout";
-import News from "../components/News";
-import { Hero, Pricing } from "../screens/Services";
+import { Hero } from "../screens/Services";
 
 import { getSortedNewsData } from "../lib/news";
 
