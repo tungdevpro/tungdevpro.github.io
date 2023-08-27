@@ -17,7 +17,7 @@ const items = [
   {
     icon: "mail-right",
     title: "Email Address",
-    subtitle: "tung210899@gmail.com",
+    subtitle: "tungdo21899@gmail.com",
     text: "",
     boolean: "true",
   },

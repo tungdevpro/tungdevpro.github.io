@@ -37,7 +37,7 @@ const contact = [
     title: "Phone: (+84) 383564187",
   },
   {
-    title: "Email: tung210899@gmail.com",
+    title: "Email: tungdo21899@gmail.com",
   },
 ];
 
