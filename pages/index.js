@@ -21,7 +21,7 @@ export default function Home({ allNewsData }) {
       <Hero />
       <Services />
       <Projects />
-      <Clients />
+      {/* <Clients /> */}
       <News number="04" allNewsData={allNewsData} />
       {/* <CTA
         number="05"
