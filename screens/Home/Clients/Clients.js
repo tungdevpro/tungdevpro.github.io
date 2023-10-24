@@ -6,9 +6,11 @@ import ScrollAnimation from "../../../components/ScrollAnimation";
 
 const logos = [
   {
+    link: "https://play.google.com/store/apps/developer?id=CMTeam",
     name: "CMTeam",
   },
   {
+    link: "https://play.google.com/store/apps/details?id=com.global.ultratik",
     name: "HXCTeam",
   },
 ];

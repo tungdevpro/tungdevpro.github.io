@@ -20,8 +20,8 @@ export default function Home({ allNewsData }) {
     <Layout>
       <Hero />
       <Services />
-      <Projects />
-      {/* <Clients /> */}
+      {/* <Projects /> */}
+      <Clients />
       <News number="04" allNewsData={allNewsData} />
       {/* <CTA
         number="05"
