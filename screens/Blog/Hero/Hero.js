@@ -7,39 +7,6 @@ import ScrollAnimation from "../../../components/ScrollAnimation";
 import Item from "../../../components/News/Item";
 import Link from "next/link";
 
-const news = [
-  {
-    image: "/images/03.jpg",
-    text: "REPUTATION",
-    title: "Quisque Iddiam Velquam Elementum Pulvinar.",
-  },
-  {
-    image: "/images/04.jpg",
-    text: "COPPED UP",
-    title: "Quisque Iddiam Velquam Elementum Pulvinar.",
-  },
-  {
-    image: "/images/05.jpg",
-    text: "LEMON TREE",
-    title: "Quisque Iddiam Velquam Elementum Pulvinar.",
-  },
-  {
-    image: "/images/07.jpg",
-    text: "WRAPPED AROUND YOUR FINGER",
-    title: "Quisque Iddiam Velquam Elementum Pulvinar.",
-  },
-  {
-    image: "/images/08.jpg",
-    text: "I LIKE YOU",
-    title: "Quisque Iddiam Velquam Elementum Pulvinar.",
-  },
-  {
-    image: "/images/09.jpg",
-    text: "I CANNOT BE",
-    title: "Quisque Iddiam Velquam Elementum Pulvinar.",
-  },
-];
-
 const Hero = ({ allNewsData }) => {
   return (
     <motion.div

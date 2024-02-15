@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Icon from "../Icon";
 import OutsideClickHandler from "react-outside-click-handler";
+import "highlight.js/styles/github.css";
 
 const links = [
   { name: "Home", href: "/" },
@@ -37,6 +38,7 @@ const Header = () => {
   };
 
   useEffect(() => {
+    // hljs.highlightAll();
     colorChange();
 
     window.addEventListener("scroll", colorChange);

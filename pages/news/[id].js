@@ -4,29 +4,10 @@ import cn from "classnames";
 import Head from "next/head";
 import Date from "../../components/Date";
 import styles from "./id.module.css";
-import Breadcrumb from "../../components/Breadcrumb";
 import Link from "next/link";
 import Icon from "../../components/Icon";
 import ScrollAnimation from "../../components/ScrollAnimation";
 
-const projects = [
-  {
-    link: "/",
-    image: "/images/09.jpg",
-  },
-  {
-    link: "/",
-    image: "/images/08.jpg",
-  },
-  {
-    link: "/",
-    image: "/images/07.jpg",
-  },
-  {
-    link: "/",
-    image: "/images/06.jpg",
-  },
-];
 
 export async function getStaticPaths() {
   const paths = getAllNewsIds();
