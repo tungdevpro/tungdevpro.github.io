@@ -137,7 +137,8 @@ go func() {
 }()
 ```
 
-Đoạn code trên mình có sử dụng 1 goroutine và bên trong nó mình có một loop. Ở đây loop như một hàm streaming luôn luôn listen xem khi nào thằng **sub** được rút ra (Kiến thức về channel trong Go). Và cái message nhận được có data thì chính là data mình gửi từ bên publish qua
+Đoạn code trên mình có sử dụng 1 goroutine và bên trong nó mình có một loop. Ở đây loop như một hàm streaming luôn luôn listen xem khi nào thằng **sub** được rút ra (Kiến thức về channel trong Go). Và cái message nhận được có data thì chính là data mình gửi từ bên publish qua.
+
 
 ### Kết
 
