@@ -1,8 +1,12 @@
 ---
-title: "Nói về Single Responsibility Principle (SRP)"
-tag: "SOLID, SOLID principles, SRP"
-date: "2024-02-16"
+title: Nói về Single Responsibility Principle (SRP)
+date: 2024/2/16
+description: View examples of all possible Markdown options.
+tag: SOLID
+author: tungdevpro
 ---
+
+# Nói về Single Responsibility Principle (SRP)
 
 Đươc Robert C. Martin (hay còn đươợc gọi là Uncle Bob) giới thiệu vào năm 2003. Single Responsibility Principle viết tắt là **SRP**. Trong nguyên lý này thì một class chỉ nên có một reason (lí do) để thay đổi hay còn được hiểu là mỗi class chỉ nên có duy nhất một nhiệm vụ.
 

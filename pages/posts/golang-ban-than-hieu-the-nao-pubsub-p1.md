@@ -1,8 +1,9 @@
 ---
-title: "Golang - bản thân hiểu thế nào về PubSub (Phần 1)"
-description: "Golang Pubsub"
-tag: "Golang, Pubsub"
-date: "2023-10-07"
+title: Golang - bản thân hiểu thế nào về PubSub (Phần 1)
+description: Golang Pubsub
+tag: Golang, Pubsub
+date: 2023/10/07
+author: tungdevpro
 ---
 
 Tháng mười trong cái tiết trời oi ả, à quên mát mẻ quá thích hợp cho một ly cafe đen đá
