@@ -1,7 +1,6 @@
 ---
-image: "/images/vuejs.jpg"
 title: "Some cool stuff in Vue 3"
-intro: "Vue 3"
+description: "Vue 3"
 tag: "vuejs"
 date: "2023-08-15"
 ---

@@ -1,8 +1,7 @@
 ---
 title: "Nói về Single Responsibility Principle (SRP)"
-image: "/images/mot-chut-solid-single-responsibility-principle.jpeg"
 tag: "SOLID, SOLID principles, SRP"
-date: "2025-02-16"
+date: "2024-02-16"
 ---
 
 Đươc Robert C. Martin (hay còn đươợc gọi là Uncle Bob) giới thiệu vào năm 2003. Single Responsibility Principle viết tắt là **SRP**. Trong nguyên lý này thì một class chỉ nên có một reason (lí do) để thay đổi hay còn được hiểu là mỗi class chỉ nên có duy nhất một nhiệm vụ.

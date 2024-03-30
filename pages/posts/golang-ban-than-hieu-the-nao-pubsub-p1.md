@@ -1,7 +1,6 @@
 ---
-image: "/images/go-subsrcibe.png"
 title: "Golang - bản thân hiểu thế nào về PubSub (Phần 1)"
-intro: "Golang Pubsub"
+description: "Golang Pubsub"
 tag: "Golang, Pubsub"
 date: "2023-10-07"
 ---

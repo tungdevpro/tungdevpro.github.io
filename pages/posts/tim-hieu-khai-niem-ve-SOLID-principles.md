@@ -1,8 +1,7 @@
 ---
 title: "Tim hiểu khái niệm về SOLID principles"
-intro: "SOLID"
 tag: "SOLID, SOLID principles"
-date: "2025-02-15"
+date: "2024-02-15"
 ---
 
 SOLID là moột khái niệm được đề xuất bởi Robert C. Martin để hỗ trợ việc phát triển mã nguồn linh hoạt và dễ bảo trì. Nó đươợ viết tắt bởi chữ cái đầu tiên của năm nguyên tắc thiết kế phần mềm quan trọng: 
