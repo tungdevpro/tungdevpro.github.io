@@ -1,7 +1,7 @@
 ---
 title: Nói về Single Responsibility Principle (SRP)
 date: 2024/2/16
-description: View examples of all possible Markdown options.
+description: 
 tag: SOLID
 author: tungdevpro
 ---
