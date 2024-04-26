@@ -10,7 +10,7 @@ Chữ "O" trong nguyên lý SOLID đề cập đến "Open/Closed Principle" (Ng
 
 Nguyên lý Open/Closed nói rằng một class hoặc module phải mở để mở rộng (tức là, bạn có thể mở rộng các tính năng của nó) nhưng đóng lại để sửa đổi (không thể thay đổi mã nguồn của nó). Điều này có nghĩa là khi bạn muốn thay đổi hành vi của một hệ thống, bạn nên mở rộng bằng cách thêm mới, chứ không phải sửa đổi mã nguồn đã tồn tại.
 
-Ví dụ, hãy xem xét một ứng dụng đơn giản quản lý hình học với các hình vuông và hình tròn. Đầu tiên, chúng ta có một interface `Employee`
+Ví dụ đầu tiên, chúng ta có một interface `Employee`
 
 ```dart
 abstract class Employee {
