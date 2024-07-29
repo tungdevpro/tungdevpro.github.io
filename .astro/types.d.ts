@@ -175,6 +175,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"flutter-auto-route-vi-du-ve-route-guard.md": {
+	id: "flutter-auto-route-vi-du-ve-route-guard.md";
+  slug: "flutter-auto-route-vi-du-ve-route-guard";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "flutter-tim-hieu-thu-vien-auto-route.md": {
 	id: "flutter-tim-hieu-thu-vien-auto-route.md";
   slug: "flutter-tim-hieu-ve-thu-vien-auto-route";
