@@ -7,7 +7,9 @@ slug: flutter-auto-route-vi-du-ve-route-guard
 featured: true
 draft: false
 tags:
-  - flutter, auto_route, AutoRouteGuard
+  - flutter
+  - auto_route
+  - AutoRouteGuard
 description: ""
 ---
 

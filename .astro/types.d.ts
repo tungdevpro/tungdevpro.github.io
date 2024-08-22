@@ -182,6 +182,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"flutter-how-to-use-future-wait.md": {
+	id: "flutter-how-to-use-future-wait.md";
+  slug: "flutter-how-to-use-future-wait";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "flutter-tim-hieu-thu-vien-auto-route.md": {
 	id: "flutter-tim-hieu-thu-vien-auto-route.md";
   slug: "flutter-tim-hieu-ve-thu-vien-auto-route";
