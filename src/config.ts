@@ -10,7 +10,7 @@ export const SITE: Site = {
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   quickIntroduceMySelf: `
-  Hey, I'm a Flutter Developer. I have 3 years experience in design application and a year front-end website development.
+  Hey, I'm a Flutter Developer. I have 3 years experience in design application and also a year front-end website development.
   I enjoy working with Flutter and Rust and my plan is to become a
         senior in the next 2 - 4 years.
   `,
