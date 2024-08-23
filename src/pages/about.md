@@ -3,6 +3,8 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
+## vi
+
 * Mình đang là Mobile Developer, hiện tại mình đang dùng Flutter & SwiftUI để phát triển app
 * Trước đây mình *từng học đại học*, nhưng vì con người lúc đó chưa đủ chín chắn thế là 😔
 * Tuổi nghề của mình còn rất ít, *cố gắng tích tiểu thành đại* ha

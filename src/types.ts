@@ -9,6 +9,8 @@ export type Site = {
   lightAndDarkMode: boolean;
   postPerPage: number;
   scheduledPostMargin: number;
+  quickIntroduceMySelf: string;
+  plan: string,
 };
 
 export type SocialObjects = {

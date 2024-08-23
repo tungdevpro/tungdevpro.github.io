@@ -9,6 +9,14 @@ export const SITE: Site = {
   lightAndDarkMode: false,
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+  quickIntroduceMySelf: `
+  Hey, I'm a Flutter Developer. I have 3 years experience in design application and a year front-end website development.
+  I enjoy working with Flutter and Rust and my plan is to become a
+        senior in the next 2 - 4 years.
+  `,
+  plan: `
+  Currently, i'm studying and participating in some projects related to Smart Constract. In the near future, i gonna try to write posts about Smart Contract, i hope everyone gonna support me.
+  `,
 };
 
 export const LOCALE = {
