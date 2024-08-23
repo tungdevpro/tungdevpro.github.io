@@ -20,7 +20,7 @@ breadcrumbList[0] === "tags" &&
     3,
     `${breadcrumbList[1]} ${
       Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"
-    }`
+    }`,
   );
 ---
 
@@ -47,7 +47,7 @@ breadcrumbList[0] === "tags" &&
             <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
             <span aria-hidden="true">&raquo;</span>
           </li>
-        )
+        ),
       )
     }
   </ul>
@@ -55,7 +55,7 @@ breadcrumbList[0] === "tags" &&
 
 <style>
   .breadcrumb {
-    @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
+    @apply mx-auto mb-1 mt-8 w-full max-w-5xl px-4;
   }
   .breadcrumb ul li {
     @apply inline;
