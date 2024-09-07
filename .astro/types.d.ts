@@ -224,6 +224,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"ownership-the-heart-of-rust-programming.md": {
+	id: "ownership-the-heart-of-rust-programming.md";
+  slug: "onwership-the-heart-of-rust-programming";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "some-cool-stuff-in-vue-3.md": {
 	id: "some-cool-stuff-in-vue-3.md";
   slug: "some-cool-stuff-in-vue-3";
