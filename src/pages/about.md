@@ -3,11 +3,12 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-## vi
+I'm a mobile developer, currently using Flutter & SwiftUI to develop apps. I used to go to university, but at that time, I wasn’t mature enough, so... 😔. It's okay, i still got up and now i'm studying at Hanoi Open University.
 
-* Mình đang là Mobile Developer, hiện tại mình đang dùng Flutter & SwiftUI để phát triển app
-* Trước đây mình *từng học đại học*, nhưng vì con người lúc đó chưa đủ chín chắn thế là 😔
-* Tuổi nghề của mình còn rất ít, *cố gắng tích tiểu thành đại* ha
-* Có một câu tục ngữ mà mình rất thích và khắc ghi nó là "Một nghề cho chín còn hơn chín nghề"
-* Về triết lý làm việc, xưa mình code ẩu lắm nhưng sau 1 vài năm đi làm mình nhận ra chất lượng và trải nghiệm người dùng là yếu tố hàng đầu
-* Mục tiêu của mình là tiếp tục phát triển và hoàn thiện kỹ năng của bản thân, đồng thời đóng góp vào open-source community thông qua việc chia sẻ kiến thức và kinh nghiệm. Mình hy vọng rằng những bài viết và plugin mà mình tạo ra sẽ giúp ích cho nhiều lập trình viên khác trong quá trình phát triển sản phẩm của họ.
+My experience in the industry is still quite limited, but I believe in making small efforts that add up over time.
+
+There is a proverb that I really like and always keep in mind: "Better to master one trade than dabble in nine."
+
+Regarding my work philosophy, I used to write messy code, but after a few years of working, I realized that code quality and user experience are the top priorities.
+
+My goal is to keep improving my skills while contributing to the open-source community by sharing knowledge and experience. I hope that my articles and plugins will be helpful to other developers in their product development journey.
