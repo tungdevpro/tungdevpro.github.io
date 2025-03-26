@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-I'm a mobile developer, currently using Flutter & SwiftUI to develop apps. I used to go to university, but at that time, I wasn’t mature enough, so... 😔. It's okay, i still got up and now i'm studying at Hanoi Open University.
+Okay, I'm Tung, but you can call me by my English name is Vito, it shorter and easy to remember. As a mobile developer, currently i am using currently using Flutter & SwiftUI to develop apps. I used to go to university, but at that time, I wasn’t mature enough, so... 😔. It's okay, i still got up and now i'm studying at Hanoi Open University.
 
 My experience in the industry is still quite limited, but I believe in making small efforts that add up over time.
 

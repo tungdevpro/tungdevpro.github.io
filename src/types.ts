@@ -10,7 +10,7 @@ export type Site = {
   postPerPage: number;
   scheduledPostMargin: number;
   quickIntroduceMySelf: string;
-  plan: string,
+  fact: string,
 };
 
 export type SocialObjects = {

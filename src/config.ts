@@ -2,21 +2,16 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://tungdevpro.github.io",
-  author: "Andrew Vito",
+  author: "Tungdevpro",
   desc: "I often gossip and write around about things like technology and my life",
-  title: "Andrew Vito",
+  title: "Tungdevpro (Vito)",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: false,
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  quickIntroduceMySelf: `
-  Hey, I'm a Flutter Developer. I have 4 years experience in design application and also a year front-end website development.
-  I enjoy working with Flutter and Rust and my plan is to become a
-        senior in the next 2 - 4 years.
+  quickIntroduceMySelf: `Hey, I'm Vito! I'm a software engineer who loves working with Flutter and Rust. I enjoy building smooth mobile apps and diving into blockchain. On this blog, I share my journey, tips, and tutorials about Flutter, Rust, and more. Whether you're a developer or just curious about tech, I hope you find something useful here.
   `,
-  plan: `
-  Currently, i'm studying and participating in some projects related to Smart Constract. In the near future, i gonna try to write posts about Smart Contract, i hope everyone gonna support me.
-  `,
+  fact: `(fact): Addicted to coffee and fixing bugs at 3AM`,
 };
 
 export const LOCALE = {

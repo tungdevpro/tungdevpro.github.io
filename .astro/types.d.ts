@@ -217,6 +217,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"mastering-state-management-in-flutter-a-bloc-pattern-guide.md": {
+	id: "mastering-state-management-in-flutter-a-bloc-pattern-guide.md";
+  slug: "mastering-state-management-in-flutter-a-bloc-pattern-guide";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "mot-chut-solid-single-responsibility-principle.md": {
 	id: "mot-chut-solid-single-responsibility-principle.md";
   slug: "solid-single-responsibility-principle";
