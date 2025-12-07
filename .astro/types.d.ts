@@ -175,6 +175,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"eco-2026-target.md": {
+	id: "eco-2026-target.md";
+  slug: "eco-2026-target";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "flutter-auto-route-vi-du-ve-route-guard.md": {
 	id: "flutter-auto-route-vi-du-ve-route-guard.md";
   slug: "flutter-auto-route-vi-du-ve-route-guard";
