@@ -7,6 +7,7 @@ import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
+import PostViews from "@components/PostViews";
 import { SITE } from "@config";
 
 export interface Props {
@@ -67,12 +68,14 @@ const layoutProps = {
   </div>
   <main id="main-content">
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <Datetime
-      pubDatetime={pubDatetime}
-      modDatetime={modDatetime}
-      size="lg"
-      className="my-2"
-    />
+    <div class="flex items-center gap-4 my-2">
+      <Datetime
+        pubDatetime={pubDatetime}
+        modDatetime={modDatetime}
+        size="lg"
+      />
+      <PostViews slug={post.slug} size="lg" client:load />
+    </div>
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-5xl">
       <Content />
     </article>
