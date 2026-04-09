@@ -15,18 +15,7 @@ const { activeNav } = Astro.props;
   <div class="nav-container">
     <div class="top-nav-wrap">
       <a href="/" class="logo whitespace-nowrap">
-        {
-          LOGO_IMAGE.enable ? (
-            <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-              alt={SITE.title}
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
-          ) : (
-            SITE.title
-          )
-        }
+        <span id="logo-text" data-title={SITE.title}></span><span class="logo-cursor">|</span>
       </a>
       <!-- <button
         type="button"
@@ -134,6 +123,14 @@ const { activeNav } = Astro.props;
   .logo {
     @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
   }
+  .logo-cursor {
+    @apply text-skin-accent;
+    animation: blink 1.2s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;
   }
@@ -215,6 +212,30 @@ const { activeNav } = Astro.props;
 
   toggleNav();
 
+  function typeLogo() {
+    const el = document.getElementById("logo-text");
+    if (!el) return;
+
+    const title = el.dataset.title ?? "";
+    el.textContent = "";
+    let i = 0;
+
+    function typeNext() {
+      if (i >= title.length) return;
+      el.textContent += title[i];
+      i++;
+      const delay = 60 + Math.random() * 60;
+      setTimeout(typeNext, delay);
+    }
+
+    setTimeout(typeNext, 150);
+  }
+
+  typeLogo();
+
   // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", toggleNav);
+  document.addEventListener("astro:after-swap", () => {
+    toggleNav();
+    typeLogo();
+  });
 </script>
