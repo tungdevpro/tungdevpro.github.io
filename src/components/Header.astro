@@ -222,7 +222,7 @@ const { activeNav } = Astro.props;
 
     function typeNext() {
       if (i >= title.length) return;
-      el.textContent += title[i];
+      el!.textContent += title[i];
       i++;
       const delay = 60 + Math.random() * 60;
       setTimeout(typeNext, delay);
