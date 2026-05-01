@@ -9,7 +9,7 @@ export const SITE: Site = {
   lightAndDarkMode: false,
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  quickIntroduceMySelf: `Hi, I'm Vito — a mobile engineer with hands-on experience in native Android and iOS development. I also explore Flutter, Rust, and blockchain when curiosity strikes. Here I write about what I build and what the journey teaches me.`,
+  quickIntroduceMySelf: `Hi, I'm Vito — a mobile engineer with hands-on experience in native Android and iOS development and a solid understanding of Flutter. Here I write about what I build and what the journey teaches me.`,
   fact: `(fact): Addicted to coffee and fixing bugs at 3AM`,
 };
 
