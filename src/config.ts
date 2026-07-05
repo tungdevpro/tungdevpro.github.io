@@ -2,9 +2,9 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://tungdevpro.github.io",
-  author: "Tungdevpro",
+  author: "andrewdo",
   desc: "I often gossip and write around about things like technology and my life",
-  title: "Tungdevpro (Vito)",
+  title: "Andrew Do",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: false,
   postPerPage: 10,
