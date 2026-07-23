@@ -54,9 +54,10 @@ const layoutProps = {
     <div class="progress-bar h-1 w-0 bg-skin-accent" id="myBar"></div>
   </div> -->
 
-  <div class="mx-auto flex w-full max-w-5xl justify-start px-2">
+  <div class="mx-auto flex w-full max-w-5xl justify-start px-4">
     <button
-      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
+      type="button"
+      class="focus-outline mb-4 mt-8 inline-flex min-h-11 items-center gap-2 rounded-md border border-skin-line bg-skin-card px-4 py-2 text-sm font-medium shadow-sm transition duration-200 hover:border-skin-accent hover:text-skin-accent"
       onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
     >
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -67,29 +68,29 @@ const layoutProps = {
     </button>
   </div>
   <main id="main-content">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <div class="flex items-center gap-4 my-2">
-      <Datetime
-        pubDatetime={pubDatetime}
-        modDatetime={modDatetime}
-        size="lg"
-      />
+    <header class="post-header">
+      <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
+      <p class="post-description">{description}</p>
+    </header>
+    <div class="post-meta">
+      <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} size="lg" />
       <PostViews slug={post.slug} size="lg" client:load />
     </div>
-    <article id="article" role="article" class="prose mx-auto mt-8 max-w-5xl">
+    <article id="article" role="article" class="prose mx-auto mt-10 max-w-3xl">
       <Content />
     </article>
 
-    <ul class="my-8">
+    <ul class="mx-auto my-10 max-w-3xl">
       {tags.map((tag) => <Tag tag={slugifyStr(tag)} />)}
     </ul>
 
     <div
-      class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
+      class="mx-auto flex max-w-3xl flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
     >
       <button
         id="back-to-top"
-        class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
+        type="button"
+        class="focus-outline inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium hover:bg-skin-card-muted hover:text-skin-accent"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
           <path
@@ -109,8 +110,17 @@ const layoutProps = {
   main {
     @apply mx-auto w-full max-w-5xl px-4 pb-12;
   }
+  .post-header {
+    @apply mx-auto max-w-3xl pt-4;
+  }
   .post-title {
-    @apply text-2xl font-semibold text-skin-accent;
+    @apply text-3xl font-semibold leading-tight tracking-normal text-skin-base sm:text-5xl;
+  }
+  .post-description {
+    @apply mt-5 text-lg leading-8 opacity-75;
+  }
+  .post-meta {
+    @apply mx-auto mt-5 flex max-w-3xl flex-wrap items-center gap-x-5 gap-y-2;
   }
 </style>
 
@@ -121,7 +131,7 @@ const layoutProps = {
     // Create the main container div
     const progressContainer = document.createElement("div");
     progressContainer.className =
-      "progress-container fixed top-0 z-10 h-1 w-full bg-skin-fill";
+      "progress-container fixed top-0 z-30 h-1 w-full bg-skin-card-muted";
 
     // Create the progress bar div
     const progressBar = document.createElement("div");
@@ -182,8 +192,9 @@ const layoutProps = {
 
       let copyButton = document.createElement("button");
       copyButton.className =
-        "copy-code absolute right-3 -top-3 rounded bg-skin-card px-2 py-1 text-xs leading-4 text-skin-base font-medium";
-      copyButton.innerHTML = copyButtonLabel;
+        "copy-code focus-outline absolute right-3 top-3 min-h-8 rounded-md border border-skin-line bg-skin-card px-3 py-1 text-xs font-medium leading-4 text-skin-base shadow-sm transition hover:border-skin-accent hover:text-skin-accent";
+      copyButton.type = "button";
+      copyButton.innerText = copyButtonLabel;
       codeBlock.setAttribute("tabindex", "0");
       codeBlock.appendChild(copyButton);
 

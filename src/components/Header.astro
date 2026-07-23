@@ -1,5 +1,5 @@
 ---
-import { LOGO_IMAGE, SITE } from "@config";
+import { SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
@@ -10,18 +10,15 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<header>
+<header class="site-header">
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo whitespace-nowrap">
-        <span id="logo-text" data-title={SITE.title}></span><span class="logo-cursor">|</span>
+      <a href="/" class="logo">
+        <span id="logo-text" data-title={SITE.title}></span><span
+          class="logo-cursor">|</span
+        >
       </a>
-      <!-- <button
-        type="button"
-        class="ml-2 border-none rounded-full bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 bg-gray-50 hover:bg-gray-200"
-        >Music</button
-      > -->
       <nav id="nav-menu">
         <button
           class="hamburger-menu focus-outline"
@@ -69,7 +66,7 @@ const { activeNav } = Astro.props;
               href="/search/"
               className={`focus-outline p-3 sm:p-1 ${
                 activeNav === "search" ? "active" : ""
-              } flex`}
+              } icon-link`}
               ariaLabel="search"
               title="Search"
             >
@@ -93,10 +90,18 @@ const { activeNav } = Astro.props;
                   aria-label="auto"
                   aria-live="polite"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="moon-svg"
+                    aria-hidden="true"
+                  >
                     <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" />
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="sun-svg"
+                    aria-hidden="true"
+                  >
                     <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
                   </svg>
                 </button>
@@ -112,69 +117,73 @@ const { activeNav } = Astro.props;
 
 <style>
   #skip-to-content {
-    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
+    @apply absolute -top-full left-4 z-50 rounded-md bg-skin-accent px-4 py-2 text-sm font-medium text-skin-inverted transition-all focus:top-4;
+  }
+  .site-header {
+    @apply sticky top-0 z-20 bg-skin-fill/95 backdrop-blur supports-[backdrop-filter]:bg-skin-fill/80;
   }
   .nav-container {
-    @apply mx-auto flex max-w-5xl flex-col items-center justify-between sm:flex-row;
+    @apply mx-auto flex max-w-5xl flex-col items-center justify-between px-4 sm:flex-row;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    @apply relative flex w-full items-start justify-between py-4 sm:items-center sm:py-5;
   }
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    @apply min-h-11 max-w-[70vw] whitespace-nowrap py-2 text-xl font-semibold leading-7 tracking-normal sm:static sm:text-2xl;
   }
   .logo-cursor {
     @apply text-skin-accent;
     animation: blink 1.2s ease-in-out infinite;
   }
   @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
   .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
+    @apply flex min-h-11 min-w-11 items-center justify-center self-end rounded-md border border-skin-line bg-skin-card shadow-sm sm:hidden;
   }
   .hamburger-menu svg {
-    @apply h-6 w-6 scale-125 fill-skin-base;
+    @apply h-6 w-6 fill-skin-base;
   }
 
   nav {
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply mt-4 w-full rounded-lg border border-skin-line bg-skin-card p-2 shadow-sm sm:ml-0 sm:mt-0 sm:w-auto sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none;
   }
   nav ul li {
-    @apply col-span-2 flex items-center justify-center;
+    @apply flex items-center justify-center;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
-  }
-  nav ul li:nth-last-child(2) a {
-    @apply w-auto;
-  }
-  nav ul li:nth-last-child(1),
-  nav ul li:nth-last-child(2) {
-    @apply col-span-1;
+    @apply flex min-h-11 w-full items-center justify-center rounded-md px-4 py-2 text-center text-sm font-medium opacity-80 hover:bg-skin-card-muted hover:text-skin-accent hover:opacity-100 sm:my-0 sm:min-h-11 sm:w-auto sm:px-3 sm:py-2;
   }
   nav a.active {
-    @apply underline decoration-2 underline-offset-4;
+    @apply bg-skin-card-muted text-skin-accent opacity-100 no-underline;
   }
   nav a.active svg {
     @apply fill-skin-accent;
   }
 
   nav button {
-    @apply p-1;
+    @apply min-h-11 min-w-11 rounded-md p-2;
   }
   nav button svg {
-    @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
+    @apply h-5 w-5 fill-skin-base transition duration-200 hover:fill-skin-accent;
   }
   #theme-btn {
-    @apply p-3 sm:p-1;
+    @apply flex items-center justify-center hover:bg-skin-card-muted;
   }
   #theme-btn svg {
-    @apply scale-125 hover:rotate-12 sm:scale-100;
+    @apply hover:rotate-12;
+  }
+  .icon-link {
+    @apply min-h-11 min-w-11 justify-center rounded-md hover:bg-skin-card-muted;
   }
 
   .menu-icon line {
@@ -193,12 +202,14 @@ const { activeNav } = Astro.props;
 
 <script>
   function toggleNav() {
-    // Toggle menu
     const menuBtn = document.querySelector(".hamburger-menu");
     const menuIcon = document.querySelector(".menu-icon");
     const menuItems = document.querySelector("#menu-items");
+    if (!menuBtn || menuBtn instanceof HTMLElement === false) return;
+    if (menuBtn.dataset.navReady === "true") return;
+    menuBtn.dataset.navReady = "true";
 
-    menuBtn?.addEventListener("click", () => {
+    menuBtn.addEventListener("click", () => {
       const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
       menuIcon?.classList.toggle("is-active");
       menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
@@ -215,14 +226,15 @@ const { activeNav } = Astro.props;
   function typeLogo() {
     const el = document.getElementById("logo-text");
     if (!el) return;
+    const logoText = el;
 
-    const title = el.dataset.title ?? "";
-    el.textContent = "";
+    const title = logoText.dataset.title ?? "";
+    logoText.textContent = "";
     let i = 0;
 
     function typeNext() {
       if (i >= title.length) return;
-      el!.textContent += title[i];
+      logoText.textContent += title[i];
       i++;
       const delay = 60 + Math.random() * 60;
       setTimeout(typeNext, delay);

@@ -39,6 +39,11 @@ module.exports = {
           fill: withOpacity("--color-accent"),
         },
       },
+      ringColor: {
+        skin: {
+          accent: withOpacity("--color-accent"),
+        },
+      },
       borderColor: {
         skin: {
           line: withOpacity("--color-border"),

@@ -23,16 +23,17 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <p>
-        {SITE.quickIntroduceMySelf}
-        <br />
-        {SITE.fact}
-      </p>
+      <div class="hero-copy">
+        <p class="eyebrow">Mobile engineering notes</p>
+        <h1>{SITE.title}</h1>
+        <p class="intro">{SITE.quickIntroduceMySelf}</p>
+        <p class="fact">{SITE.fact}</p>
+      </div>
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
+            <div class="social-links">Find me on</div>
             <Socials />
           </div>
         )
@@ -45,7 +46,10 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
-            <h2>Posts</h2>
+            <div class="section-heading">
+              <h2>Featured Posts</h2>
+              <p>Selected writing from the archive.</p>
+            </div>
             <ul>
               {featuredPosts.map(({ data, slug }) => (
                 <Card
@@ -64,7 +68,10 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
     {
       recentPosts.length > 0 && (
         <section id="recent-posts">
-          <h2>Recent Posts</h2>
+          <div class="section-heading">
+            <h2>Recent Posts</h2>
+            <p>Latest notes and engineering write-ups.</p>
+          </div>
           <ul>
             {recentPosts.map(
               ({ data, slug }, index) =>
@@ -82,7 +89,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
     }
 
     <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
+      <LinkButton href="/posts/" className="all-posts-btn focus-outline">
         All Posts
         <svg xmlns="http://www.w3.org/2000/svg"
           ><path
@@ -99,37 +106,48 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pb-6 pt-8;
+    @apply grid gap-6 pb-10 pt-10 sm:grid-cols-[1fr_auto] sm:items-end sm:pt-16;
+  }
+  .hero-copy {
+    @apply max-w-3xl;
+  }
+  .eyebrow {
+    @apply mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-skin-accent;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply text-4xl font-semibold leading-tight tracking-normal sm:text-6xl;
   }
-  #hero .rss-link {
-    @apply mb-6;
+  .intro {
+    @apply mt-5 max-w-2xl text-lg leading-8 opacity-85;
   }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-  }
-  #hero p {
-    @apply my-2;
+  .fact {
+    @apply mt-4 text-sm opacity-65;
   }
   .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+    @apply flex flex-col gap-2 rounded-lg border border-skin-line bg-skin-card p-4 shadow-sm sm:min-w-44;
   }
   .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+    @apply whitespace-nowrap text-sm font-medium opacity-70;
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
   #featured,
   #recent-posts {
-    @apply pb-6 pt-12;
+    @apply pb-6 pt-10;
   }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
+  .section-heading {
+    @apply mb-5;
+  }
+  .section-heading h2 {
+    @apply text-2xl font-semibold tracking-normal;
+  }
+  .section-heading p {
+    @apply mt-1 text-sm opacity-70;
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
+  }
+  .all-posts-btn {
+    @apply min-h-11 rounded-md bg-skin-inverted px-5 py-2.5 font-medium text-skin-inverted transition duration-200 hover:bg-skin-accent hover:text-skin-inverted;
   }
 </style>

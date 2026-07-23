@@ -5,20 +5,20 @@
 @layer base {
   :root,
   html[data-theme="light"] {
-    --color-fill: 255, 255, 255;
-    --color-text-base: 40, 39, 40;
-    --color-accent: 0, 108, 172;
-    --color-card: 230, 230, 230;
-    --color-card-muted: 205, 205, 205;
-    --color-border: 236, 233, 233;
+    --color-fill: 250, 250, 250;
+    --color-text-base: 24, 24, 27;
+    --color-accent: 37, 99, 235;
+    --color-card: 255, 255, 255;
+    --color-card-muted: 232, 236, 240;
+    --color-border: 228, 228, 231;
   }
   html[data-theme="dark"] {
-    --color-fill: 33, 39, 55;
-    --color-text-base: 234, 237, 243;
-    --color-accent: 255, 107, 1;
-    --color-card: 52, 63, 96;
-    --color-card-muted: 138, 51, 2;
-    --color-border: 171, 75, 8;
+    --color-fill: 9, 9, 11;
+    --color-text-base: 244, 244, 245;
+    --color-accent: 96, 165, 250;
+    --color-card: 24, 24, 27;
+    --color-card-muted: 39, 39, 42;
+    --color-border: 63, 63, 70;
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -29,15 +29,15 @@
     display: block;
   }
   body {
-    @apply flex min-h-[100svh] flex-col bg-skin-fill font-sans text-skin-base
-    selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
+    @apply flex min-h-[100svh] flex-col bg-skin-fill font-sans text-base leading-7 text-skin-base antialiased
+    selection:bg-skin-accent selection:text-skin-inverted;
   }
   section,
   footer {
-    @apply mx-auto max-w-5xl px-4;
+    @apply mx-auto w-full max-w-5xl px-4;
   }
   a {
-    @apply outline-2 outline-offset-1 outline-skin-fill 
+    @apply rounded-sm outline-2 outline-offset-4 outline-skin-fill transition-colors duration-200
     focus-visible:no-underline focus-visible:outline-dashed;
   }
   svg {
@@ -49,25 +49,29 @@
     sm:scale-110;
   }
   .prose {
-    @apply prose-headings:!mb-3 prose-headings:!text-skin-base 
-    prose-h3:italic prose-p:!text-skin-base 
-    prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8
+    @apply prose-lg max-w-none prose-headings:!mb-3 prose-headings:scroll-mt-24 prose-headings:!text-skin-base
+    prose-h2:mt-12 prose-h2:border-b prose-h2:border-skin-line prose-h2:pb-2
+    prose-h3:mt-8 prose-p:!text-skin-base prose-p:leading-8
+    prose-a:!text-skin-accent prose-a:!decoration-dashed prose-a:underline-offset-8
     hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent
     prose-blockquote:border-opacity-50 prose-blockquote:opacity-80
     prose-figcaption:!text-skin-base prose-figcaption:opacity-70
     prose-strong:!text-skin-base
 
     
-    prose-code:rounded prose-code:bg-skin-card 
-    prose-code:bg-opacity-75 prose-code:p-1 
+    prose-code:rounded prose-code:bg-skin-card-muted
+    prose-code:bg-opacity-75 prose-code:px-1.5 prose-code:py-1
     prose-code:before:!content-none prose-code:after:!content-none
     prose-ol:!text-skin-base 
     prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent
     prose-table:text-skin-base prose-th:border
     prose-th:border-skin-line prose-td:border 
-    prose-td:border-skin-line prose-img:!my-2 
-    prose-img:mx-auto prose-img:border-2 
+    prose-td:border-skin-line prose-img:!my-8
+    prose-img:mx-auto prose-img:rounded-lg prose-img:border
     prose-img:border-skin-line prose-hr:!border-skin-line;
+  }
+  .prose pre {
+    @apply rounded-lg border border-skin-line bg-skin-card-muted p-4 shadow-sm;
   }
   .prose a {
     @apply break-words hover:!text-skin-accent;
@@ -107,7 +111,7 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-skin-card;
+    @apply rounded-full bg-skin-card-muted;
   }
 
   /* Handle on hover */
@@ -130,6 +134,6 @@
     @apply hidden;
   }
   .focus-outline {
-    @apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
+    @apply rounded-sm outline-2 outline-offset-4 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
   }
 }

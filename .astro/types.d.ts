@@ -175,6 +175,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"2026-07-23-android-app-structure-overview.md": {
+	id: "2026-07-23-android-app-structure-overview.md";
+  slug: "android-app-structure-overview";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "eco-2026-target.md": {
 	id: "eco-2026-target.md";
   slug: "eco-2026-target";
