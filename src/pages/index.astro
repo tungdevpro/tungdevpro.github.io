@@ -91,8 +91,12 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
     <div class="all-posts-btn-wrapper">
       <LinkButton href="/posts/" className="all-posts-btn focus-outline">
         All Posts
-        <svg xmlns="http://www.w3.org/2000/svg"
-          ><path
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="all-posts-arrow"
+          aria-hidden="true"
+        >
+          <path
             d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
           ></path>
         </svg>
@@ -149,5 +153,13 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
   }
   .all-posts-btn {
     @apply min-h-11 rounded-md bg-skin-inverted px-5 py-2.5 font-medium text-skin-inverted transition duration-200 hover:bg-skin-accent hover:text-skin-inverted;
+  }
+  .all-posts-arrow {
+    fill: rgb(var(--color-fill));
+    @apply transition-transform duration-200;
+  }
+  .all-posts-btn:hover .all-posts-arrow {
+    fill: rgb(var(--color-fill));
+    @apply translate-x-1;
   }
 </style>
