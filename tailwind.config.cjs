@@ -59,8 +59,8 @@ module.exports = {
         transparent: "transparent",
       },
       fontFamily: {
-        sans: ["Google Sans", "sans-serif"],
-        mono: ["Google Sans", "sans-serif"],
+        sans: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["Geist Mono", "ui-monospace", "monospace"],
       },
 
       typography: {
