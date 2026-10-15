@@ -3,12 +3,17 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
-import Datetime from "@components/Datetime";
+import TableOfContents from "@components/TableOfContents.astro";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import PostViews from "@components/PostViews";
-import { SITE } from "@config";
+import formatDate from "@utils/formatDate";
+import getReadingTime from "@utils/getReadingTime";
+import getTocHeadings from "@utils/getTocHeadings";
+import { LOCALE, SITE } from "@config";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -27,7 +32,10 @@ const {
   tags,
 } = post.data;
 
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
+const tocHeadings = getTocHeadings(headings);
+const readingTime = getReadingTime(post.body);
+const isUpdated = modDatetime && modDatetime > pubDatetime;
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
@@ -49,59 +57,82 @@ const layoutProps = {
 
 <Layout {...layoutProps}>
   <Header />
-
-  <!-- <div class="progress-container fixed top-0 z-10 h-1 w-full bg-background">
-    <div class="progress-bar h-1 w-0 bg-primary" id="myBar"></div>
-  </div> -->
-
-  <div class="mx-auto flex w-full max-w-5xl justify-start px-4">
-    <button
-      type="button"
-      class="focus-outline mb-4 mt-8 inline-flex min-h-11 items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm font-medium shadow-sm transition duration-200 hover:border-primary hover:text-primary"
-      onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
-      </svg><span>Go back</span>
-    </button>
-  </div>
   <main id="main-content">
+    <nav class="post-crumb meta-text" aria-label="breadcrumb">
+      <a href="/posts/">← Posts</a>
+      {
+        tags[0] && (
+          <>
+            <span aria-hidden="true"> / </span>
+            <a href={`/tags/${slugifyStr(tags[0])}/`}>{slugifyStr(tags[0])}</a>
+          </>
+        )
+      }
+    </nav>
     <header class="post-header">
       <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
       <p class="post-description">{description}</p>
+      <p class="post-meta meta-text">
+        <time datetime={pubDatetime.toISOString()}>
+          {formatDate(pubDatetime, LOCALE.langTag)}
+        </time>
+        {
+          isUpdated && (
+            <span>
+              · updated{" "}
+              <time datetime={modDatetime.toISOString()}>
+                {formatDate(modDatetime, LOCALE.langTag)}
+              </time>
+            </span>
+          )
+        }
+        <span aria-hidden="true">·</span>
+        <span>{readingTime} min read</span>
+        <span aria-hidden="true">·</span>
+        <PostViews slug={post.slug} client:load />
+      </p>
+      <ul class="post-tags">
+        {tags.map((tag) => <Tag tag={slugifyStr(tag)} />)}
+      </ul>
     </header>
-    <div class="post-meta">
-      <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} size="lg" />
-      <PostViews slug={post.slug} size="lg" client:load />
+
+    <div class:list={["post-layout", { "has-toc": tocHeadings.length > 0 }]}>
+      <div class="min-w-0">
+        {
+          tocHeadings.length > 0 && (
+            <div class="lg:hidden">
+              <TableOfContents headings={tocHeadings} variant="inline" />
+            </div>
+          )
+        }
+        <article id="article" role="article" class="prose">
+          <Content />
+        </article>
+      </div>
+      {
+        tocHeadings.length > 0 && (
+          <aside class="hidden lg:block">
+            <TableOfContents headings={tocHeadings} variant="sidebar" />
+          </aside>
+        )
+      }
     </div>
-    <article id="article" role="article" class="prose mx-auto mt-10 max-w-3xl">
-      <Content />
-    </article>
 
-    <ul class="mx-auto my-10 max-w-3xl">
-      {tags.map((tag) => <Tag tag={slugifyStr(tag)} />)}
-    </ul>
-
-    <div
-      class="mx-auto flex max-w-3xl flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
-    >
-      <button
-        id="back-to-top"
-        type="button"
-        class="focus-outline inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
-          <path
-            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-          ></path>
-        </svg>
-        <span>Back to Top</span>
-      </button>
-
-      <ShareLinks />
-    </div>
+    <footer class="post-footer">
+      <ul class="post-tags">
+        {tags.map((tag) => <Tag tag={slugifyStr(tag)} />)}
+      </ul>
+      <div class="post-footer-row">
+        <ShareLinks />
+        <button
+          id="back-to-top"
+          type="button"
+          class={cn(buttonVariants({ variant: "ghost" }), "min-h-11")}
+        >
+          ↑ Back to top
+        </button>
+      </div>
+    </footer>
   </main>
   <Footer />
 </Layout>
@@ -110,17 +141,41 @@ const layoutProps = {
   main {
     @apply mx-auto w-full max-w-5xl px-4 pb-12;
   }
+  .post-crumb {
+    @apply mt-8;
+  }
+  .post-crumb a {
+    @apply hover:text-primary;
+  }
   .post-header {
-    @apply mx-auto max-w-3xl pt-4;
+    @apply max-w-3xl pt-4;
   }
   .post-title {
-    @apply text-3xl font-semibold leading-tight tracking-normal text-foreground sm:text-5xl;
+    @apply text-4xl font-semibold leading-[1.1] sm:text-5xl;
   }
   .post-description {
-    @apply mt-5 text-lg leading-8 opacity-75;
+    @apply mt-4 text-lg leading-8 text-muted-foreground;
   }
   .post-meta {
-    @apply mx-auto mt-5 flex max-w-3xl flex-wrap items-center gap-x-5 gap-y-2;
+    @apply mt-5 flex flex-wrap items-center gap-x-2 gap-y-1;
+  }
+  .post-tags {
+    @apply mt-4 flex flex-wrap gap-2;
+  }
+  .post-layout {
+    @apply mt-10 border-t border-border pt-10;
+  }
+  .post-layout.has-toc {
+    @apply lg:grid lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-12;
+  }
+  .post-layout .prose {
+    @apply max-w-[68ch];
+  }
+  .post-footer {
+    @apply mt-12 max-w-[68ch] border-t border-border pt-6;
+  }
+  .post-footer-row {
+    @apply mt-6 flex flex-col-reverse items-center justify-between gap-4 sm:flex-row;
   }
 </style>
 
@@ -128,20 +183,13 @@ const layoutProps = {
   /** Create a progress indicator
    *  at the top */
   function createProgressBar() {
-    // Create the main container div
     const progressContainer = document.createElement("div");
     progressContainer.className =
-      "progress-container fixed top-0 z-30 h-1 w-full bg-muted";
-
-    // Create the progress bar div
+      "progress-container fixed top-0 z-30 h-[3px] w-full bg-transparent";
     const progressBar = document.createElement("div");
-    progressBar.className = "progress-bar h-1 w-0 bg-primary";
+    progressBar.className = "progress-bar h-full w-0 bg-primary";
     progressBar.id = "myBar";
-
-    // Append the progress bar to the progress container
     progressContainer.appendChild(progressBar);
-
-    // Append the progress container to the document body or any other desired parent element
     document.body.appendChild(progressContainer);
   }
   createProgressBar();
@@ -167,7 +215,11 @@ const layoutProps = {
   /** Attaches links to headings in the document,
    *  allowing sharing of sections easily */
   function addHeadingLinks() {
-    let headings = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6"));
+    let headings = Array.from(
+      document.querySelectorAll(
+        "#article h2, #article h3, #article h4, #article h5, #article h6",
+      ),
+    );
     for (let heading of headings) {
       heading.classList.add("group");
       let link = document.createElement("a");
@@ -192,7 +244,7 @@ const layoutProps = {
 
       let copyButton = document.createElement("button");
       copyButton.className =
-        "copy-code focus-outline absolute right-3 top-3 min-h-8 rounded-md border border-border bg-card px-3 py-1 text-xs font-medium leading-4 text-foreground shadow-sm transition hover:border-primary hover:text-primary";
+        "copy-code focus-outline absolute right-3 top-3 inline-flex min-h-8 items-center rounded-md border border-border bg-background px-2.5 font-sans text-xs font-medium text-muted-foreground transition hover:text-foreground";
       copyButton.type = "button";
       copyButton.innerText = copyButtonLabel;
       codeBlock.setAttribute("tabindex", "0");
@@ -232,4 +284,27 @@ const layoutProps = {
     });
   }
   backToTop();
+  /** Highlights the TOC entry for the heading currently in view. */
+  function spyToc() {
+    const links = Array.from(document.querySelectorAll("[data-toc-link]"));
+    if (links.length === 0) return;
+    const targets = links
+      .map((link) => document.getElementById(link.dataset.tocLink))
+      .filter(Boolean);
+    const setActive = (id) =>
+      links.forEach((link) =>
+        link.setAttribute("data-active", String(link.dataset.tocLink === id)),
+      );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-80px 0px -70% 0px" },
+    );
+    targets.forEach((target) => observer.observe(target));
+  }
+  spyToc();
 </script>
