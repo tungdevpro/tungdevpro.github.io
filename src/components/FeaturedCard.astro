@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import getReadingTime from "@utils/getReadingTime";
+import { slugifyStr } from "@utils/slugify";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { title, description, tags } = post.data;
+---
+
+<li>
+  <a href={`/posts/${post.slug}/`} class="featured-card group">
+    <p class="meta-text">
+      {tags[0]}<span aria-hidden="true"> · </span>{getReadingTime(post.body)} min
+      read
+    </p>
+    <h3
+      class="featured-title"
+      style={`view-transition-name: ${slugifyStr(title)}`}
+    >
+      {title}
+    </h3>
+    {description && <p class="featured-desc">{description}</p>}
+  </a>
+</li>
+
+<style>
+  .featured-card {
+    @apply flex h-full flex-col gap-2 rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/50;
+  }
+  .featured-title {
+    @apply text-xl font-semibold leading-snug text-foreground group-hover:text-primary;
+  }
+  .featured-desc {
+    @apply line-clamp-2 text-sm text-muted-foreground;
+  }
+</style>

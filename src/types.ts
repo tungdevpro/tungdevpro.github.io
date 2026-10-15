@@ -10,7 +10,9 @@ export type Site = {
   postPerPage: number;
   scheduledPostMargin: number;
   quickIntroduceMySelf: string;
-  fact: string,
+  fact: string;
+  role: string;
+  headline: string;
 };
 
 export type SocialObjects = {

@@ -3,163 +3,108 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
-import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
-import Socials from "@components/Socials.astro";
+import FeaturedCard from "@components/FeaturedCard.astro";
+import PostRow from "@components/PostRow.astro";
 import getSortedPosts from "@utils/getSortedPosts";
-import { SOCIALS, SITE } from "@config";
+import getHomePosts from "@utils/getHomePosts";
+import { SITE } from "@config";
+import { buttonVariants } from "@/components/ui/button";
 
 const posts = await getCollection("blog");
-
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-
-const socialCount = SOCIALS.filter((social) => social.active).length;
+const { featured, recent } = getHomePosts(getSortedPosts(posts));
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
     <section id="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Mobile engineering notes</p>
-        <h1>{SITE.title}</h1>
-        <p class="intro">{SITE.quickIntroduceMySelf}</p>
-        <p class="fact">{SITE.fact}</p>
+      <p class="role">{SITE.role}</p>
+      <h1>{SITE.headline}</h1>
+      <p class="intro">{SITE.quickIntroduceMySelf}</p>
+      <div class="hero-actions">
+        <a
+          href="/posts/"
+          class={buttonVariants({ className: "min-h-11 rounded-full px-5" })}
+        >
+          Read the blog
+        </a>
+        <a href="/about/" class="about-link">About me</a>
       </div>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Find me on</div>
-            <Socials />
-          </div>
-        )
-      }
     </section>
 
-    <Hr />
-
     {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <div class="section-heading">
-              <h2>Featured Posts</h2>
-              <p>Selected writing from the archive.</p>
-            </div>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card
-                  href={`/posts/${slug}/`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts">
+      featured.length > 0 && (
+        <section id="featured" aria-labelledby="featured-heading">
           <div class="section-heading">
-            <h2>Recent Posts</h2>
-            <p>Latest notes and engineering write-ups.</p>
+            <h2 id="featured-heading">Featured</h2>
           </div>
-          <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < 4 && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                ),
-            )}
+          <ul class="featured-grid">
+            {featured.map((post) => (
+              <FeaturedCard post={post} />
+            ))}
           </ul>
         </section>
       )
     }
 
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/" className="all-posts-btn focus-outline">
-        All Posts
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="all-posts-arrow"
-          aria-hidden="true"
-        >
-          <path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
-        </svg>
-      </LinkButton>
-    </div>
+    {
+      recent.length > 0 && (
+        <section id="recent-posts" aria-labelledby="recent-heading">
+          <div class="section-heading">
+            <h2 id="recent-heading">Recent writing</h2>
+            <a href="/posts/" class="all-link">
+              All posts →
+            </a>
+          </div>
+          <ul class="post-list">
+            {recent.map((post) => (
+              <PostRow post={post} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
   </main>
 
   <Footer />
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
   #hero {
-    @apply grid gap-6 pb-10 pt-10 sm:grid-cols-[1fr_auto] sm:items-end sm:pt-16;
+    @apply pb-8 pt-14 sm:pb-12 sm:pt-24;
   }
-  .hero-copy {
-    @apply max-w-3xl;
-  }
-  .eyebrow {
-    @apply mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary;
+  .role {
+    @apply font-mono text-xs uppercase tracking-[0.08em] text-primary;
   }
   #hero h1 {
-    @apply text-4xl font-semibold leading-tight tracking-normal sm:text-6xl;
+    @apply mt-3 max-w-3xl text-4xl font-semibold leading-[1.1] sm:text-6xl;
   }
   .intro {
-    @apply mt-5 max-w-2xl text-lg leading-8 opacity-85;
+    @apply mt-5 max-w-[62ch] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8;
   }
-  .fact {
-    @apply mt-4 text-sm opacity-65;
+  .hero-actions {
+    @apply mt-7 flex flex-wrap items-center gap-4;
   }
-  .social-wrapper {
-    @apply flex flex-col gap-2 rounded-lg border border-border bg-card p-4 shadow-sm sm:min-w-44;
+  .about-link {
+    @apply inline-flex min-h-11 items-center text-sm text-muted-foreground underline decoration-border underline-offset-4 hover:text-foreground hover:decoration-foreground;
   }
-  .social-links {
-    @apply whitespace-nowrap text-sm font-medium opacity-70;
-  }
-
-  /* ===== Featured & Recent Posts Sections ===== */
   #featured,
   #recent-posts {
-    @apply pb-6 pt-10;
+    @apply pb-8 pt-6;
   }
   .section-heading {
-    @apply mb-5;
+    @apply mb-4 flex items-baseline justify-between gap-3;
   }
   .section-heading h2 {
-    @apply text-2xl font-semibold tracking-normal;
+    @apply text-2xl font-semibold;
   }
-  .section-heading p {
-    @apply mt-1 text-sm opacity-70;
+  .all-link {
+    @apply inline-flex min-h-11 items-center text-sm text-primary hover:underline;
   }
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+  .featured-grid {
+    @apply grid gap-3 sm:grid-cols-2;
   }
-  .all-posts-btn {
-    @apply min-h-11 rounded-md bg-foreground px-5 py-2.5 font-medium text-primary-foreground transition duration-200 hover:bg-primary hover:text-primary-foreground;
-  }
-  .all-posts-arrow {
-    fill: hsl(var(--background));
-    @apply transition-transform duration-200;
-  }
-  .all-posts-btn:hover .all-posts-arrow {
-    fill: hsl(var(--background));
-    @apply translate-x-1;
+  main {
+    @apply pb-12;
   }
 </style>
