@@ -24,7 +24,7 @@ export default function Datetime({
         xmlns="http://www.w3.org/2000/svg"
         className={`${
           size === "sm" ? "h-4 w-4" : "h-5 w-5"
-        } inline-block min-w-4 fill-skin-base`}
+        } inline-block min-w-4 fill-foreground`}
         aria-hidden="true"
       >
         <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>

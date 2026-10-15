@@ -116,7 +116,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
     @apply max-w-3xl;
   }
   .eyebrow {
-    @apply mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-skin-accent;
+    @apply mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-primary;
   }
   #hero h1 {
     @apply text-4xl font-semibold leading-tight tracking-normal sm:text-6xl;
@@ -128,7 +128,7 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
     @apply mt-4 text-sm opacity-65;
   }
   .social-wrapper {
-    @apply flex flex-col gap-2 rounded-lg border border-skin-line bg-skin-card p-4 shadow-sm sm:min-w-44;
+    @apply flex flex-col gap-2 rounded-lg border border-border bg-card p-4 shadow-sm sm:min-w-44;
   }
   .social-links {
     @apply whitespace-nowrap text-sm font-medium opacity-70;
@@ -152,14 +152,14 @@ const socialCount = SOCIALS.filter((social) => social.active).length;
     @apply my-8 text-center;
   }
   .all-posts-btn {
-    @apply min-h-11 rounded-md bg-skin-inverted px-5 py-2.5 font-medium text-skin-inverted transition duration-200 hover:bg-skin-accent hover:text-skin-inverted;
+    @apply min-h-11 rounded-md bg-foreground px-5 py-2.5 font-medium text-primary-foreground transition duration-200 hover:bg-primary hover:text-primary-foreground;
   }
   .all-posts-arrow {
-    fill: rgb(var(--color-fill));
+    fill: hsl(var(--background));
     @apply transition-transform duration-200;
   }
   .all-posts-btn:hover .all-posts-arrow {
-    fill: rgb(var(--color-fill));
+    fill: hsl(var(--background));
     @apply translate-x-1;
   }
 </style>

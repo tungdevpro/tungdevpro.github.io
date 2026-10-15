@@ -29,7 +29,7 @@ export default function PostViews({ slug, size = "sm" }: Props) {
         xmlns="http://www.w3.org/2000/svg"
         className={`${
           size === "sm" ? "scale-90" : "scale-100"
-        } inline-block h-6 w-6 min-w-[1.375rem] fill-skin-base`}
+        } inline-block h-6 w-6 min-w-[1.375rem] fill-foreground`}
         aria-hidden="true"
         viewBox="0 0 24 24"
       >

@@ -117,10 +117,10 @@ const { activeNav } = Astro.props;
 
 <style>
   #skip-to-content {
-    @apply absolute -top-full left-4 z-50 rounded-md bg-skin-accent px-4 py-2 text-sm font-medium text-skin-inverted transition-all focus:top-4;
+    @apply absolute -top-full left-4 z-50 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all focus:top-4;
   }
   .site-header {
-    @apply sticky top-0 z-20 bg-skin-fill/95 backdrop-blur supports-[backdrop-filter]:bg-skin-fill/80;
+    @apply sticky top-0 z-20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80;
   }
   .nav-container {
     @apply mx-auto flex max-w-5xl flex-col items-center justify-between px-4 sm:flex-row;
@@ -132,7 +132,7 @@ const { activeNav } = Astro.props;
     @apply min-h-11 max-w-[70vw] whitespace-nowrap py-2 text-xl font-semibold leading-7 tracking-normal sm:static sm:text-2xl;
   }
   .logo-cursor {
-    @apply text-skin-accent;
+    @apply text-primary;
     animation: blink 1.2s ease-in-out infinite;
   }
   @keyframes blink {
@@ -145,45 +145,45 @@ const { activeNav } = Astro.props;
     }
   }
   .hamburger-menu {
-    @apply flex min-h-11 min-w-11 items-center justify-center self-end rounded-md border border-skin-line bg-skin-card shadow-sm sm:hidden;
+    @apply flex min-h-11 min-w-11 items-center justify-center self-end rounded-md border border-border bg-card shadow-sm sm:hidden;
   }
   .hamburger-menu svg {
-    @apply h-6 w-6 fill-skin-base;
+    @apply h-6 w-6 fill-foreground;
   }
 
   nav {
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 w-full rounded-lg border border-skin-line bg-skin-card p-2 shadow-sm sm:ml-0 sm:mt-0 sm:w-auto sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none;
+    @apply mt-4 w-full rounded-lg border border-border bg-card p-2 shadow-sm sm:ml-0 sm:mt-0 sm:w-auto sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none;
   }
   nav ul li {
     @apply flex items-center justify-center;
   }
   nav ul li a {
-    @apply flex min-h-11 w-full items-center justify-center rounded-md px-4 py-2 text-center text-sm font-medium opacity-80 hover:bg-skin-card-muted hover:text-skin-accent hover:opacity-100 sm:my-0 sm:min-h-11 sm:w-auto sm:px-3 sm:py-2;
+    @apply flex min-h-11 w-full items-center justify-center rounded-md px-4 py-2 text-center text-sm font-medium opacity-80 hover:bg-muted hover:text-primary hover:opacity-100 sm:my-0 sm:min-h-11 sm:w-auto sm:px-3 sm:py-2;
   }
   nav a.active {
-    @apply bg-skin-card-muted text-skin-accent opacity-100 no-underline;
+    @apply bg-muted text-primary opacity-100 no-underline;
   }
   nav a.active svg {
-    @apply fill-skin-accent;
+    @apply fill-primary;
   }
 
   nav button {
     @apply min-h-11 min-w-11 rounded-md p-2;
   }
   nav button svg {
-    @apply h-5 w-5 fill-skin-base transition duration-200 hover:fill-skin-accent;
+    @apply h-5 w-5 fill-foreground transition duration-200 hover:fill-primary;
   }
   #theme-btn {
-    @apply flex items-center justify-center hover:bg-skin-card-muted;
+    @apply flex items-center justify-center hover:bg-muted;
   }
   #theme-btn svg {
     @apply hover:rotate-12;
   }
   .icon-link {
-    @apply min-h-11 min-w-11 justify-center rounded-md hover:bg-skin-card-muted;
+    @apply min-h-11 min-w-11 justify-center rounded-md hover:bg-muted;
   }
 
   .menu-icon line {

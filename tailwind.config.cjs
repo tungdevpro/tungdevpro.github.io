@@ -1,68 +1,60 @@
-function withOpacity(variableName) {
-  return ({ opacityValue }) => {
-    if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`;
-    }
-    return `rgb(var(${variableName}))`;
-  };
-}
-
 /** @type {import('tailwindcss').Config} */
+const token = (name) => `hsl(var(--${name}) / <alpha-value>)`;
+
 module.exports = {
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    // Remove the following screen breakpoint or add other breakpoints
-    // if one breakpoint is not enough for you
     screens: {
       sm: "640px",
+      lg: "1024px",
     },
-
     extend: {
-      textColor: {
-        skin: {
-          base: withOpacity("--color-text-base"),
-          accent: withOpacity("--color-accent"),
-          inverted: withOpacity("--color-fill"),
+      colors: {
+        border: token("border"),
+        input: token("input"),
+        ring: token("ring"),
+        background: token("background"),
+        foreground: token("foreground"),
+        primary: {
+          DEFAULT: token("primary"),
+          foreground: token("primary-foreground"),
+        },
+        secondary: {
+          DEFAULT: token("secondary"),
+          foreground: token("secondary-foreground"),
+        },
+        destructive: {
+          DEFAULT: token("destructive"),
+          foreground: token("destructive-foreground"),
+        },
+        muted: {
+          DEFAULT: token("muted"),
+          foreground: token("muted-foreground"),
+        },
+        accent: {
+          DEFAULT: token("accent"),
+          foreground: token("accent-foreground"),
+        },
+        popover: {
+          DEFAULT: token("popover"),
+          foreground: token("popover-foreground"),
+        },
+        card: {
+          DEFAULT: token("card"),
+          foreground: token("card-foreground"),
         },
       },
-      backgroundColor: {
-        skin: {
-          fill: withOpacity("--color-fill"),
-          accent: withOpacity("--color-accent"),
-          inverted: withOpacity("--color-text-base"),
-          card: withOpacity("--color-card"),
-          "card-muted": withOpacity("--color-card-muted"),
-        },
-      },
-      outlineColor: {
-        skin: {
-          fill: withOpacity("--color-accent"),
-        },
-      },
-      ringColor: {
-        skin: {
-          accent: withOpacity("--color-accent"),
-        },
-      },
-      borderColor: {
-        skin: {
-          line: withOpacity("--color-border"),
-          fill: withOpacity("--color-text-base"),
-          accent: withOpacity("--color-accent"),
-        },
-      },
-      fill: {
-        skin: {
-          base: withOpacity("--color-text-base"),
-          accent: withOpacity("--color-accent"),
-        },
-        transparent: "transparent",
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
         sans: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["Libertinus Serif", "Georgia", "Cambria", "serif"],
         mono: ["Geist Mono", "ui-monospace", "monospace"],
       },
-
       typography: {
         DEFAULT: {
           css: {

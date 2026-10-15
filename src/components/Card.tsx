@@ -14,14 +14,14 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
     className:
-      "text-xl font-semibold leading-snug text-skin-base transition-colors duration-200 group-hover:text-skin-accent",
+      "text-xl font-semibold leading-snug text-foreground transition-colors duration-200 group-hover:text-primary",
   };
 
   return (
     <li className="my-4">
       <a
         href={href}
-        className="group block rounded-lg border border-skin-line bg-skin-card p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-skin-accent hover:shadow-md focus-visible:no-underline sm:p-6"
+        className="group block rounded-lg border border-border bg-card p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus-visible:no-underline sm:p-6"
       >
         <article>
           {secHeading ? (

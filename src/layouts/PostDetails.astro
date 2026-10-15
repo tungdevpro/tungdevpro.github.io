@@ -50,14 +50,14 @@ const layoutProps = {
 <Layout {...layoutProps}>
   <Header />
 
-  <!-- <div class="progress-container fixed top-0 z-10 h-1 w-full bg-skin-fill">
-    <div class="progress-bar h-1 w-0 bg-skin-accent" id="myBar"></div>
+  <!-- <div class="progress-container fixed top-0 z-10 h-1 w-full bg-background">
+    <div class="progress-bar h-1 w-0 bg-primary" id="myBar"></div>
   </div> -->
 
   <div class="mx-auto flex w-full max-w-5xl justify-start px-4">
     <button
       type="button"
-      class="focus-outline mb-4 mt-8 inline-flex min-h-11 items-center gap-2 rounded-md border border-skin-line bg-skin-card px-4 py-2 text-sm font-medium shadow-sm transition duration-200 hover:border-skin-accent hover:text-skin-accent"
+      class="focus-outline mb-4 mt-8 inline-flex min-h-11 items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm font-medium shadow-sm transition duration-200 hover:border-primary hover:text-primary"
       onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
     >
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ const layoutProps = {
       <button
         id="back-to-top"
         type="button"
-        class="focus-outline inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium hover:bg-skin-card-muted hover:text-skin-accent"
+        class="focus-outline inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
           <path
@@ -114,7 +114,7 @@ const layoutProps = {
     @apply mx-auto max-w-3xl pt-4;
   }
   .post-title {
-    @apply text-3xl font-semibold leading-tight tracking-normal text-skin-base sm:text-5xl;
+    @apply text-3xl font-semibold leading-tight tracking-normal text-foreground sm:text-5xl;
   }
   .post-description {
     @apply mt-5 text-lg leading-8 opacity-75;
@@ -131,11 +131,11 @@ const layoutProps = {
     // Create the main container div
     const progressContainer = document.createElement("div");
     progressContainer.className =
-      "progress-container fixed top-0 z-30 h-1 w-full bg-skin-card-muted";
+      "progress-container fixed top-0 z-30 h-1 w-full bg-muted";
 
     // Create the progress bar div
     const progressBar = document.createElement("div");
-    progressBar.className = "progress-bar h-1 w-0 bg-skin-accent";
+    progressBar.className = "progress-bar h-1 w-0 bg-primary";
     progressBar.id = "myBar";
 
     // Append the progress bar to the progress container
@@ -192,7 +192,7 @@ const layoutProps = {
 
       let copyButton = document.createElement("button");
       copyButton.className =
-        "copy-code focus-outline absolute right-3 top-3 min-h-8 rounded-md border border-skin-line bg-skin-card px-3 py-1 text-xs font-medium leading-4 text-skin-base shadow-sm transition hover:border-skin-accent hover:text-skin-accent";
+        "copy-code focus-outline absolute right-3 top-3 min-h-8 rounded-md border border-border bg-card px-3 py-1 text-xs font-medium leading-4 text-foreground shadow-sm transition hover:border-primary hover:text-primary";
       copyButton.type = "button";
       copyButton.innerText = copyButtonLabel;
       codeBlock.setAttribute("tabindex", "0");

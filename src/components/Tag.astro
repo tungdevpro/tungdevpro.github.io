@@ -26,9 +26,9 @@ const { tag, size = "sm" } = Astro.props;
 
 <style>
   a {
-    @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-skin-line bg-skin-card px-3 py-1.5 font-medium no-underline transition duration-200 hover:border-skin-accent hover:text-skin-accent focus-visible:p-1;
+    @apply inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 font-medium no-underline transition duration-200 hover:border-primary hover:text-primary focus-visible:p-1;
   }
   a svg {
-    @apply h-4 w-4 text-skin-base opacity-70 group-hover:fill-skin-accent;
+    @apply h-4 w-4 text-foreground opacity-70 group-hover:fill-primary;
   }
 </style>

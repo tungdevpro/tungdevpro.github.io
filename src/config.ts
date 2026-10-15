@@ -6,7 +6,7 @@ export const SITE: Site = {
   desc: "I often gossip and write around about things like technology and my life",
   title: "Andrew Do",
   ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: false,
+  lightAndDarkMode: true,
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   quickIntroduceMySelf: `Hi, I'm Andrew - a mobile engineer with hands-on experience in native Android and iOS development and a solid understanding of Flutter. Here I write about what I build and what the journey teaches me.`,

@@ -6,7 +6,6 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
-
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
@@ -28,7 +27,10 @@ export default defineConfig({
       ],
     ],
     shikiConfig: {
-      theme: "one-dark-pro",
+      themes: {
+        light: "github-light",
+        dark: "github-dark-dimmed",
+      },
       wrap: true,
     },
   },
