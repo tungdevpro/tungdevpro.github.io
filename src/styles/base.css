@@ -59,10 +59,12 @@
     @apply flex min-h-[100svh] flex-col bg-background font-sans text-base leading-7 text-foreground antialiased
     selection:bg-primary selection:text-primary-foreground;
   }
-  h1,
+  h1 {
+    @apply tracking-[-0.035em];
+  }
   h2,
   h3 {
-    @apply font-serif;
+    @apply tracking-tight;
   }
   section {
     @apply mx-auto w-full max-w-5xl px-4;
@@ -80,7 +82,7 @@
     sm:scale-110;
   }
   .prose {
-    @apply prose-lg max-w-none prose-headings:!mb-3 prose-headings:scroll-mt-24 prose-headings:font-serif
+    @apply prose-lg max-w-none prose-headings:!mb-3 prose-headings:scroll-mt-24 prose-headings:tracking-tight
     prose-headings:font-semibold prose-headings:!text-foreground
     prose-h2:mt-12 prose-h2:border-b prose-h2:border-border prose-h2:pb-2
     prose-h3:mt-8 prose-p:!text-foreground prose-p:leading-8

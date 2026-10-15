@@ -236,3 +236,6 @@ footer; home and lists; post page; search.
 - Astro is bumped from 4.2.1 to 4.16.19 (same major) because dual Shiki
   themes need a newer 4.x; `tailwind-merge` is pinned to 2.6.0, the
   Tailwind 3-compatible line.
+- 2026-10-15 (after launch): headings switched from Newsreader to Geist at the
+  owner's request; the site now uses Geist everywhere and Geist Mono for
+  metadata. Large headings use tighter letter-spacing.
