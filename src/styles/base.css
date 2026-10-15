@@ -64,8 +64,7 @@
   h3 {
     @apply font-serif;
   }
-  section,
-  footer {
+  section {
     @apply mx-auto w-full max-w-5xl px-4;
   }
   a {

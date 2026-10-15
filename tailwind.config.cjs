@@ -52,7 +52,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
-        serif: ["Libertinus Serif", "Georgia", "Cambria", "serif"],
+        serif: ["Newsreader", "Georgia", "Cambria", "serif"],
         mono: ["Geist Mono", "ui-monospace", "monospace"],
       },
       typography: {
