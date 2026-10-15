@@ -1,5 +1,6 @@
 ---
-import LinkButton from "./LinkButton.astro";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export interface Props {
   currentPage: number;
@@ -10,56 +11,47 @@ export interface Props {
 
 const { currentPage, totalPages, prevUrl, nextUrl } = Astro.props;
 
-const prev = currentPage > 1 ? "" : "disabled";
-const next = currentPage < totalPages ? "" : "disabled";
+const hasPrev = currentPage > 1;
+const hasNext = currentPage < totalPages;
+const linkClass = cn(buttonVariants({ variant: "ghost" }), "min-h-11");
 ---
 
 {
   totalPages > 1 && (
     <nav class="pagination-wrapper" aria-label="Pagination">
-      <LinkButton
-        disabled={prev === "disabled"}
-        href={prevUrl}
-        className={`select-none ${prev} pager-link`}
-        ariaLabel="Previous"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class={`${prev}-svg`}>
-          <path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z" />
-        </svg>
-        Prev
-      </LinkButton>
-      <span class="page-count">
-        {currentPage} / {totalPages}
+      {hasPrev ? (
+        <a href={prevUrl} class={linkClass} rel="prev">
+          ← Newer
+        </a>
+      ) : (
+        <span
+          class={cn(linkClass, "pointer-events-none opacity-40")}
+          aria-disabled="true"
+        >
+          ← Newer
+        </span>
+      )}
+      <span class="meta-text">
+        Page {currentPage} of {totalPages}
       </span>
-      <LinkButton
-        disabled={next === "disabled"}
-        href={nextUrl}
-        className={`select-none ${next} pager-link`}
-        ariaLabel="Next"
-      >
-        Next
-        <svg xmlns="http://www.w3.org/2000/svg" class={`${next}-svg`}>
-          <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
-        </svg>
-      </LinkButton>
+      {hasNext ? (
+        <a href={nextUrl} class={linkClass} rel="next">
+          Older →
+        </a>
+      ) : (
+        <span
+          class={cn(linkClass, "pointer-events-none opacity-40")}
+          aria-disabled="true"
+        >
+          Older →
+        </span>
+      )}
     </nav>
   )
 }
 
 <style>
   .pagination-wrapper {
-    @apply mx-auto mb-8 mt-auto flex max-w-5xl items-center justify-center gap-3 px-4;
-  }
-  .pager-link {
-    @apply min-h-11 rounded-md border border-border bg-card px-4 py-2 text-sm font-medium shadow-sm hover:border-primary hover:text-primary;
-  }
-  .page-count {
-    @apply rounded-md bg-muted px-3 py-2 text-sm font-medium;
-  }
-  .disabled {
-    @apply pointer-events-none select-none opacity-50 hover:text-foreground group-hover:fill-foreground;
-  }
-  .disabled-svg {
-    @apply group-hover:!fill-foreground;
+    @apply mx-auto mb-8 mt-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4;
   }
 </style>
