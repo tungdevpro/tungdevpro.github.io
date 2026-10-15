@@ -1,5 +1,6 @@
 const socialIcons = {
   Github: `<svg
+    viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     class="icon-tabler"
     stroke-linecap="round"
@@ -11,6 +12,7 @@ const socialIcons = {
     ></path>
   </svg>`,
   Facebook: `<svg
+    viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     class="icon-tabler"
     stroke-linecap="round"
@@ -22,6 +24,7 @@ const socialIcons = {
     ></path>
   </svg>`,
   Instagram: `<svg
+    viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     class="icon-tabler"
     stroke-linecap="round"
@@ -33,6 +36,7 @@ const socialIcons = {
     <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
   </svg>`,
   LinkedIn: `<svg
+    viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
     class="icon-tabler"
     stroke-linecap="round"
@@ -46,6 +50,7 @@ const socialIcons = {
     <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
   </svg>`,
   Mail: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -56,6 +61,7 @@ const socialIcons = {
       <polyline points="3 7 12 13 21 7"></polyline>
     </svg>`,
   Twitter: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -65,6 +71,7 @@ const socialIcons = {
       <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
     </svg>`,
   Twitch: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -73,6 +80,7 @@ const socialIcons = {
       <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path>
     </svg>`,
   YouTube: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -82,6 +90,7 @@ const socialIcons = {
       <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
     </svg>`,
   WhatsApp: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -92,6 +101,7 @@ const socialIcons = {
       <path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1"></path>
     </svg>`,
   Snapchat: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -101,6 +111,7 @@ const socialIcons = {
       <path d="M16.882 7.842a4.882 4.882 0 0 0 -9.764 0c0 4.273 -.213 6.409 -4.118 8.118c2 .882 2 .882 3 3c3 0 4 2 6 2s3 -2 6 -2c1 -2.118 1 -2.118 3 -3c-3.906 -1.709 -4.118 -3.845 -4.118 -8.118zm-13.882 8.119c4 -2.118 4 -4.118 1 -7.118m17 7.118c-4 -2.118 -4 -4.118 -1 -7.118"></path>
     </svg>`,
   Pinterest: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -112,6 +123,7 @@ const socialIcons = {
       <circle cx="12" cy="12" r="9"></circle>
     </svg>`,
   TikTok: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -121,6 +133,7 @@ const socialIcons = {
       <path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"></path>
     </svg>`,
   CodePen: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -135,6 +148,7 @@ const socialIcons = {
       <line x1="12" y1="15" x2="12" y2="21"></line>
     </svg>`,
   Discord: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -149,6 +163,7 @@ const socialIcons = {
       <path d="M8.5 17c0 1 -1.356 3 -1.832 3c-1.429 0 -2.698 -1.667 -3.333 -3c-.635 -1.667 -.476 -5.833 1.428 -11.5c1.388 -1.015 2.782 -1.34 4.237 -1.5l1 2.5"></path>
     </svg>`,
   GitLab: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -158,6 +173,7 @@ const socialIcons = {
       <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z"></path>
     </svg>`,
   Reddit: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -172,6 +188,7 @@ const socialIcons = {
       <path d="M10 17c.667 .333 1.333 .5 2 .5s1.333 -.167 2 -.5"></path>
     </svg>`,
   Skype: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -182,6 +199,7 @@ const socialIcons = {
       <path d="M8 14.5c.5 2 2.358 2.5 4 2.5c2.905 0 4 -1.187 4 -2.5c0 -1.503 -1.927 -2.5 -4 -2.5s-4 -.997 -4 -2.5c0 -1.313 1.095 -2.5 4 -2.5c1.642 0 3.5 .5 4 2.5"></path>
     </svg>`,
   Steam: `<svg
+    viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
       stroke-linecap="round"
@@ -192,6 +210,7 @@ const socialIcons = {
       <circle fill="currentColor" cx="16.5" cy="9.5" r="1"></circle>
     </svg>`,
   Telegram: `<svg
+    viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         class="icon-tabler"
         stroke-linecap="round"
