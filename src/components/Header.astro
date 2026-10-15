@@ -3,6 +3,7 @@ import { SITE } from "@config";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
+import SearchPalette from "./SearchPalette";
 
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search";
@@ -39,30 +40,10 @@ const navItems = [
       </ul>
     </nav>
     <div class="nav-actions">
-      <a
-        href="/search/"
-        class={cn(
-          buttonVariants({ variant: "ghost", size: "icon" }),
-          "size-11",
-        )}
-        aria-label="Search"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="lucide"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          ><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"
-          ></path></svg
-        >
-      </a>
+      <SearchPalette client:idle />
+      <noscript>
+        <a href="/search/" class="nav-link">Search</a>
+      </noscript>
       {SITE.lightAndDarkMode && <ThemeToggle client:idle />}
       <button
         class={cn(

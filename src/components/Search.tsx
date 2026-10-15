@@ -1,14 +1,7 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState, useMemo, type FormEvent } from "react";
-import Card from "@components/Card";
-import type { CollectionEntry } from "astro:content";
-
-export type SearchItem = {
-  title: string;
-  description: string;
-  data: CollectionEntry<"blog">["data"];
-  slug: string;
-};
+import SearchResultItem from "@components/SearchResultItem";
+import type { SearchItem } from "@utils/toSearchItems";
 
 interface Props {
   searchList: SearchItem[];
@@ -83,7 +76,7 @@ export default function SearchBar({ searchList }: Props) {
           <span className="sr-only">Search</span>
         </span>
         <input
-          className="block min-h-12 w-full rounded-lg border border-border bg-card py-3 pl-12 pr-4 shadow-sm placeholder:text-foreground placeholder:opacity-50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/20"
+          className="block min-h-12 w-full rounded-xl border border-input bg-card py-3 pl-12 pr-4 placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/35"
           placeholder="Search for anything..."
           type="text"
           name="search"
@@ -106,16 +99,20 @@ export default function SearchBar({ searchList }: Props) {
         </div>
       )}
 
-      <ul className="mt-4">
-        {searchResults &&
-          searchResults.map(({ item, refIndex }) => (
-            <Card
-              href={`/posts/${item.slug}/`}
-              frontmatter={item.data}
-              key={`${refIndex}-${item.slug}`}
-            />
+      {searchResults && searchResults.length > 0 && (
+        <ul className="post-list mt-4">
+          {searchResults.map(({ item, refIndex }) => (
+            <li key={`${refIndex}-${item.slug}`}>
+              <a
+                href={`/posts/${item.slug}/`}
+                className="flex min-h-11 px-5 py-4 hover:bg-muted/60"
+              >
+                <SearchResultItem item={item} />
+              </a>
+            </li>
           ))}
-      </ul>
+        </ul>
+      )}
     </>
   );
 }
