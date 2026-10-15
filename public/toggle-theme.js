@@ -1,4 +1,4 @@
-const primaryColorScheme = "light"; // "light" | "dark"
+const primaryColorScheme = ""; // "light" | "dark" | "" (follow system)
 
 // Get theme data from local storage
 const currentTheme = localStorage.getItem("theme");
@@ -49,22 +49,15 @@ function reflectPreference() {
 // set early so no page flashes / CSS is made aware
 reflectPreference();
 
+window.__setTheme = (theme) => {
+  themeValue = theme;
+  setPreference();
+};
+
 window.onload = () => {
-  function setThemeFeature() {
-    // set on load so screen readers can get the latest value on the button
-    reflectPreference();
-
-    // now this script can find and listen for clicks on the control
-    document.querySelector("#theme-btn")?.addEventListener("click", () => {
-      themeValue = themeValue === "light" ? "dark" : "light";
-      setPreference();
-    });
-  }
-
-  setThemeFeature();
-
+  reflectPreference();
   // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", setThemeFeature);
+  document.addEventListener("astro:after-swap", reflectPreference);
 };
 
 // sync with system changes

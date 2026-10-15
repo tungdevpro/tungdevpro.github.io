@@ -1,38 +1,35 @@
 ---
 import { SOCIALS } from "@config";
-import LinkButton from "./LinkButton.astro";
 import socialIcons from "@assets/socialIcons";
-
-export interface Props {
-  centered?: boolean;
-}
-
-const { centered = false } = Astro.props;
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 ---
 
-<div class={`social-icons ${centered ? "flex" : ""}`}>
+<div class="social-icons">
   {
     SOCIALS.filter((social) => social.active).map((social) => (
-      <LinkButton
+      <a
         href={social.href}
-        className="link-button focus-outline"
+        class={cn(
+          buttonVariants({ variant: "ghost", size: "icon" }),
+          "group size-11",
+        )}
         title={social.linkTitle}
-        ariaLabel={social.linkTitle}
+        aria-label={social.linkTitle}
         target="_blank"
         rel="noopener noreferrer"
       >
         <Fragment set:html={socialIcons[social.name]} />
-        <span class="sr-only">{social.linkTitle}</span>
-      </LinkButton>
+      </a>
     ))
   }
 </div>
 
 <style>
   .social-icons {
-    @apply flex flex-wrap justify-center gap-1;
+    @apply flex flex-wrap items-center justify-center gap-1;
   }
-  .link-button {
-    @apply min-h-11 min-w-11 justify-center rounded-md p-2 hover:bg-skin-card-muted hover:text-skin-accent;
+  .social-icons :global(svg) {
+    @apply size-5 scale-100;
   }
 </style>

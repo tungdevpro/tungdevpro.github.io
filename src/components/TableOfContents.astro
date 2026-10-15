@@ -1,0 +1,68 @@
+---
+import type { MarkdownHeading } from "astro";
+
+export interface Props {
+  headings: MarkdownHeading[];
+  variant: "sidebar" | "inline";
+}
+
+const { headings, variant } = Astro.props;
+const isSidebar = variant === "sidebar";
+---
+
+{
+  isSidebar ? (
+    <nav class="toc-sidebar" aria-label="On this page">
+      <p class="meta-text toc-heading">On this page</p>
+      <ol class="toc-list">
+        {headings.map(({ depth, slug, text }) => (
+          <li class:list={[{ "pl-3": depth === 3 }]}>
+            <a href={`#${slug}`} class="toc-link" data-toc-link={slug}>
+              {text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  ) : (
+    <details class="toc-inline">
+      <summary class="meta-text">On this page</summary>
+      <ol class="toc-list">
+        {headings.map(({ depth, slug, text }) => (
+          <li class:list={[{ "pl-3": depth === 3 }]}>
+            <a href={`#${slug}`} class="toc-link" data-toc-link={slug}>
+              {text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </details>
+  )
+}
+
+<style>
+  .toc-sidebar {
+    @apply sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto border-l border-border pl-4;
+  }
+  .toc-heading {
+    @apply mb-2 uppercase;
+  }
+  .toc-inline {
+    @apply mb-8 rounded-xl border border-border bg-card px-4 py-3;
+  }
+  .toc-inline summary {
+    @apply flex min-h-11 cursor-pointer items-center uppercase;
+  }
+  .toc-list {
+    @apply flex flex-col text-sm;
+  }
+  .toc-link {
+    @apply -ml-[17px] block border-l-2 border-transparent py-1.5 pl-[15px] text-muted-foreground hover:text-foreground;
+  }
+  .toc-inline .toc-link {
+    @apply ml-0 flex min-h-11 items-center border-l-0 pl-0;
+  }
+  .toc-link[data-active="true"] {
+    @apply border-primary font-medium text-primary;
+  }
+</style>

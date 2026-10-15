@@ -3,7 +3,7 @@ import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
+import { buttonVariants } from "@/components/ui/button";
 ---
 
 <Layout title={`404 Not Found | ${SITE.title}`}>
@@ -11,15 +11,12 @@ import LinkButton from "@components/LinkButton.astro";
 
   <main id="main-content">
     <div class="not-found-wrapper">
-      <h1 aria-label="404 Not Found">404</h1>
-      <span aria-hidden="true">¯\_(ツ)_/¯</span>
-      <p>Page Not Found</p>
-      <LinkButton
-        href="/"
-        className="my-6 text-lg underline decoration-dashed underline-offset-8"
-      >
-        Go back home
-      </LinkButton>
+      <p class="meta-text">Error 404</p>
+      <h1>Page not found</h1>
+      <p class="not-found-copy">
+        The page you're looking for doesn't exist or has moved.
+      </p>
+      <a href="/" class={buttonVariants({ size: "lg" })}>Go back home</a>
     </div>
   </main>
 
@@ -28,15 +25,15 @@ import LinkButton from "@components/LinkButton.astro";
 
 <style>
   #main-content {
-    @apply mx-auto flex max-w-5xl flex-1 items-center justify-center;
+    @apply mx-auto flex w-full max-w-5xl flex-1 items-center justify-center px-4;
   }
   .not-found-wrapper {
-    @apply mb-14 flex flex-col items-center justify-center;
+    @apply mb-14 flex flex-col items-center gap-4 text-center;
   }
   .not-found-wrapper h1 {
-    @apply text-9xl font-bold text-skin-accent;
+    @apply text-5xl font-semibold sm:text-6xl;
   }
-  .not-found-wrapper p {
-    @apply mt-4 text-2xl sm:text-3xl;
+  .not-found-copy {
+    @apply text-muted-foreground;
   }
 </style>

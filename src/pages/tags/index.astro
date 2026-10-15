@@ -6,18 +6,22 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Tag from "@components/Tag.astro";
 import getUniqueTags from "@utils/getUniqueTags";
+import getPostsByTag from "@utils/getPostsByTag";
 import { SITE } from "@config";
 
 const posts = await getCollection("blog");
 
-let tags = getUniqueTags(posts);
+const tags = getUniqueTags(posts).map(({ tag }) => ({
+  tag,
+  count: getPostsByTag(posts, tag).length,
+}));
 ---
 
 <Layout title={`Tags | ${SITE.title}`}>
   <Header activeNav="tags" />
   <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
-    <ul>
-      {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
+    <ul class="flex flex-wrap gap-x-2 gap-y-4">
+      {tags.map(({ tag, count }) => <Tag {tag} {count} size="lg" />)}
     </ul>
   </Main>
   <Footer />
