@@ -29,7 +29,7 @@ export default function ThemeToggle() {
   }, []);
 
   const next: Theme = theme === "dark" ? "light" : "dark";
-  const label = `Switch to ${next} mode`;
+  const tooltip = `Switch to ${next} mode`;
 
   return (
     <TooltipProvider delayDuration={300}>
@@ -39,13 +39,16 @@ export default function ThemeToggle() {
             variant="ghost"
             size="icon"
             className="size-11"
-            aria-label={label}
+            aria-label="Toggle dark mode"
+            aria-pressed={theme === "dark"}
             onClick={() => window.__setTheme?.(next)}
           >
-            {theme === "dark" ? <Sun /> : <Moon />}
+            {/* both rendered; CSS picks one so the icon is right before hydration */}
+            <Sun className="hidden dark:block" />
+            <Moon className="block dark:hidden" />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>{label}</TooltipContent>
+        <TooltipContent>{tooltip}</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

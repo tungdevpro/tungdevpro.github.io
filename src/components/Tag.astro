@@ -6,24 +6,32 @@ export interface Props {
   tag: string;
   count?: number;
   size?: "sm" | "lg";
+  /** Set false when the same tag is rendered twice on a page (names must be unique). */
+  transition?: boolean;
 }
 
-const { tag, count, size = "sm" } = Astro.props;
+const { tag, count, size = "sm", transition = true } = Astro.props;
+const pillClass = cn(
+  badgeVariants({ variant: "tag" }),
+  "tag-pill rounded-full",
+  size === "lg" && "px-3 py-1 text-sm",
+);
 ---
 
 <li class="inline-block">
-  <a
-    href={`/tags/${tag}/`}
-    transition:name={tag}
-    class={cn(
-      badgeVariants({ variant: "tag" }),
-      "tag-pill rounded-full",
-      size === "lg" && "px-3 py-1 text-sm",
-    )}
-  >
-    #{tag}
-    {count !== undefined && <span class="tag-count">{count}</span>}
-  </a>
+  {
+    transition ? (
+      <a href={`/tags/${tag}/`} transition:name={tag} class={pillClass}>
+        #{tag}
+        {count !== undefined && <span class="tag-count">{count}</span>}
+      </a>
+    ) : (
+      <a href={`/tags/${tag}/`} class={pillClass}>
+        #{tag}
+        {count !== undefined && <span class="tag-count">{count}</span>}
+      </a>
+    )
+  }
 </li>
 
 <style>

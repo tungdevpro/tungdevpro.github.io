@@ -60,7 +60,7 @@ const isSidebar = variant === "sidebar";
     @apply -ml-[17px] block border-l-2 border-transparent py-1.5 pl-[15px] text-muted-foreground hover:text-foreground;
   }
   .toc-inline .toc-link {
-    @apply ml-0 border-l-0 pl-0;
+    @apply ml-0 flex min-h-11 items-center border-l-0 pl-0;
   }
   .toc-link[data-active="true"] {
     @apply border-primary font-medium text-primary;
