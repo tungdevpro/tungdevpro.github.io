@@ -1,0 +1,29 @@
+version: 2
+updates:
+  # npm: one grouped PR per month for minor/patch updates.
+  # Major versions (e.g. Astro 5, Tailwind 4) are migrations, not routine
+  # updates, so they are ignored here and done deliberately instead.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    commit-message:
+      prefix: "chore(deps)"
+
+  # GitHub Actions used by the workflows (deploy.yml, ci.yml).
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci"

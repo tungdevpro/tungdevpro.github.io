@@ -1,0 +1,45 @@
+name: CI
+
+# Checks every pull request (including Dependabot's) before it can be merged.
+# Deploys still happen only from deploy.yml on pushes to main.
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Lint
+        run: npm run lint
+
+      # The build only needs these to be present; PR builds are never deployed,
+      # so placeholders avoid exposing real secrets to Dependabot/fork PRs.
+      - name: Build
+        run: npm run build
+        env:
+          PUBLIC_SUPABASE_URL: https://example.supabase.co
+          PUBLIC_SUPABASE_ANON_KEY: placeholder
