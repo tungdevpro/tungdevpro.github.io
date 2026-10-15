@@ -218,3 +218,21 @@ shipping JavaScript.
 
 About six conventional commits: tokens and fonts; shadcn setup; header and
 footer; home and lists; post page; search.
+
+## Amendments (2026-10-15, during planning and implementation)
+
+- OG image templates are out of scope: their `GET` handlers are disabled, so
+  OG images are not generated.
+- Headings use **Newsreader** instead of Libertinus Serif. Libertinus renders
+  blanks for Vietnamese characters such as "ể" and "ệ", which appear in several
+  post titles. Newsreader loads from Google Fonts alongside Geist (matching the
+  existing pattern) instead of being self-hosted.
+- The copy-code button keeps its visible "Copy"/"Copied" label; no Tooltip
+  (it is created by an inline DOM script, not React).
+- Light `primary` is `#9a5f0e` and light `muted-foreground` is `#6b6b73` to
+  pass WCAG AA; `ring` uses the primary color, with alpha at use sites.
+- Vitest (`npm test`) covers the pure utilities and token contrast.
+- `Separator` is not added; no React island needs one.
+- Astro is bumped from 4.2.1 to 4.16.19 (same major) because dual Shiki
+  themes need a newer 4.x; `tailwind-merge` is pinned to 2.6.0, the
+  Tailwind 3-compatible line.

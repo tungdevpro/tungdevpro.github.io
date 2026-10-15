@@ -18,8 +18,11 @@ const { frontmatter } = Astro.props;
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
   <Header activeNav="about" />
   <Breadcrumbs />
-  <main id="main-content">
-    <section id="about" class="prose mb-28 max-w-3xl prose-img:border-0">
+  <main id="main-content" class="mx-auto w-full max-w-5xl px-4">
+    <section
+      id="about"
+      class="prose mb-28 !mx-0 !max-w-3xl !px-0 prose-img:border-0"
+    >
       <h1 class="font-serif text-4xl font-semibold sm:text-5xl">
         {frontmatter.title}
       </h1>
