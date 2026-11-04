@@ -4,7 +4,7 @@ pubDatetime: 2024-07-20T07:30:00Z
 modDatetime: 2024-07-01T05:00:47.400Z
 title: Flutter - Ví dụ về AutoRouteGuard
 slug: flutter-auto-route-vi-du-ve-route-guard
-featured: true
+featured: false
 draft: false
 tags:
   - flutter

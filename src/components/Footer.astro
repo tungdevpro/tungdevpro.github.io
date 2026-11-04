@@ -14,7 +14,6 @@ const { noMarginTop = false } = Astro.props;
 <footer class:list={["site-footer", { "mt-auto": !noMarginTop }]}>
   <div class="footer-inner">
     <div class="footer-copy">
-      <p>{SITE.fact}</p>
       <p>&#169; {currentYear} {SITE.title}. All rights reserved.</p>
     </div>
     <Socials />

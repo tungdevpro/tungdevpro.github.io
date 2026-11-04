@@ -3,7 +3,7 @@ author: tungdevpro
 pubDatetime: 2025-12-06T15:30:00Z
 title: ECO 2026 TARGET
 slug: eco-2026-target
-featured: true
+featured: false
 draft: false
 tags:
   - eco

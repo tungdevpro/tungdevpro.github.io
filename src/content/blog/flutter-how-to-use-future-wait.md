@@ -3,7 +3,7 @@ author: tungdevpro
 pubDatetime: 2024-08-14T22:30:00Z
 title: Flutter - How to use Future.wait
 slug: flutter-how-to-use-future-wait
-featured: true
+featured: false
 draft: false
 tags:
   - flutter

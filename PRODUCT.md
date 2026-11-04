@@ -38,7 +38,8 @@ A working mobile engineer's notes written in both Vietnamese and English, so loc
 - Content is bilingual, and Vietnamese diacritics must render correctly everywhere: body, headings, OG images, search.
 - Social links: GitHub, Facebook, LinkedIn, email (`src/config.ts`).
 - Light and dark mode exist today (`lightAndDarkMode: true`). The user did not make this a binding commitment.
-- Undecided: whether to add per-post language labels or a language filter; where plugins are shown (there is no plugin listing or showcase on the site yet).
+- Language: each post's body language is set by `lang` frontmatter (`en` / `vi`). Post lists show a small EN / VI marker on every card and row (decided 2026-11-04). Interface labels stay in English on purpose.
+- Undecided: a language filter; where plugins are shown (there is no plugin listing or showcase on the site yet).
 
 ## Brand Commitments
 

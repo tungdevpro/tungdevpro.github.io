@@ -4,7 +4,7 @@ pubDatetime: 2024-02-15T15:22:00Z
 modDatetime: 2024-02-15T09:12:47.400Z
 title: Tìm hiểu khái niệm về SOLID principles
 slug: tim-hieu-khai-niem-solid-priciples
-featured: true
+featured: false
 draft: false
 tags:
   - solid
