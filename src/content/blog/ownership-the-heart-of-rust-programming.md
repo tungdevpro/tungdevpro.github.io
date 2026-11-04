@@ -10,6 +10,7 @@ draft: false
 tags:
   - rust
   - onwership
+lang: vi
 ---
 
 What's up guy!!! I'm come back. Before we do that, i just want to talk that "Have everyone good a day" 😉.

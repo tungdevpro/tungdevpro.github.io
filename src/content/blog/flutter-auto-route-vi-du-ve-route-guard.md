@@ -11,6 +11,10 @@ tags:
   - auto_route
   - AutoRouteGuard
 description: ""
+lang: vi
+series:
+  name: "auto_route"
+  part: 2
 ---
 
 ## Route Guards

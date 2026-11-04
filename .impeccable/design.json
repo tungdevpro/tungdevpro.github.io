@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T02:34:27+00:00",
+  "title": "Design System: Andrew Do",
+  "extensions": {
+    "colorMeta": {
+      "roast-amber": {
+        "role": "primary",
+        "displayName": "Roast Amber",
+        "canonical": "hsl(35 83% 32.9%)",
+        "cssVar": "--primary",
+        "tonalRamp": [
+          "#3c2a10",
+          "#694717",
+          "#9a6419",
+          "#ce8217",
+          "#e7a241",
+          "#e7bb7e",
+          "#edd8ba",
+          "#f9f3ec"
+        ]
+      },
+      "crema": {
+        "role": "primary",
+        "displayName": "Crema (dark theme)",
+        "canonical": "hsl(36 75% 60.6%)",
+        "cssVar": "--primary",
+        "tonalRamp": [
+          "#3a2a13",
+          "#65471b",
+          "#93651f",
+          "#c58420",
+          "#dfa349",
+          "#e2bc83",
+          "#ebd8bd",
+          "#f8f3ed"
+        ]
+      },
+      "milk-foam": {
+        "role": "primary",
+        "displayName": "Milk Foam",
+        "canonical": "hsl(37 59% 91.4%)",
+        "cssVar": "--accent",
+        "tonalRamp": [
+          "#362a17",
+          "#5d4623",
+          "#87642c",
+          "#b48232",
+          "#cfa159",
+          "#d8bb8d",
+          "#e6d8c2",
+          "#f7f3ee"
+        ]
+      },
+      "dark-roast-tint": {
+        "role": "primary",
+        "displayName": "Dark-Roast Tint (dark theme)",
+        "canonical": "hsl(35 45% 11.4%)",
+        "cssVar": "--accent",
+        "tonalRamp": [
+          "#32281b",
+          "#56432a",
+          "#7c5f37",
+          "#a47a42",
+          "#c09b67",
+          "#cfb796",
+          "#e1d6c6",
+          "#f6f3ef"
+        ]
+      },
+      "roast-amber-text": {
+        "role": "primary",
+        "displayName": "Roast Amber Text",
+        "canonical": "hsl(34 81% 32.4%)",
+        "cssVar": "--accent-foreground",
+        "tonalRamp": [
+          "#3b2911",
+          "#684518",
+          "#98621b",
+          "#cb7f1a",
+          "#e49f44",
+          "#e5b980",
+          "#ecd7bb",
+          "#f8f3ec"
+        ]
+      },
+      "crema-text": {
+        "role": "primary",
+        "displayName": "Crema Text (dark theme)",
+        "canonical": "hsl(36 79% 71.8%)",
+        "cssVar": "--accent-foreground",
+        "tonalRamp": [
+          "#3b2a12",
+          "#674719",
+          "#96651c",
+          "#ca831c",
+          "#e3a345",
+          "#e4bc81",
+          "#ecd8bc",
+          "#f8f3ec"
+        ]
+      },
+      "stone-paper": {
+        "role": "neutral",
+        "displayName": "Stone Paper",
+        "canonical": "hsl(60 11% 96.5%)",
+        "cssVar": "--background",
+        "tonalRamp": [
+          "#292923",
+          "#45453a",
+          "#626251",
+          "#7f7f67",
+          "#9f9f89",
+          "#b9b9ac",
+          "#d7d7d0",
+          "#f3f3f1"
+        ]
+      },
+      "espresso-black": {
+        "role": "neutral",
+        "displayName": "Espresso Black (dark theme)",
+        "canonical": "hsl(0 0% 3.9%)",
+        "cssVar": "--background",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#949494",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "card-white": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "canonical": "hsl(0 0% 100%)",
+        "cssVar": "--card",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#949494",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "night-card": {
+        "role": "neutral",
+        "displayName": "Night Card (dark theme)",
+        "canonical": "hsl(0 0% 7.8%)",
+        "cssVar": "--card",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#949494",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "hsl(240 6% 10%)",
+        "cssVar": "--foreground",
+        "tonalRamp": [
+          "#252528",
+          "#3d3d43",
+          "#55555e",
+          "#6c6c79",
+          "#8e8e9a",
+          "#afafb6",
+          "#d2d2d5",
+          "#f2f2f3"
+        ]
+      },
+      "steam": {
+        "role": "neutral",
+        "displayName": "Steam (dark theme)",
+        "canonical": "hsl(0 0% 92.9%)",
+        "cssVar": "--foreground",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#949494",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "hsl(240 4% 43.5%)",
+        "cssVar": "--muted-foreground",
+        "tonalRamp": [
+          "#252527",
+          "#3e3e42",
+          "#56565c",
+          "#6e6e77",
+          "#909098",
+          "#b0b0b5",
+          "#d2d2d5",
+          "#f2f2f3"
+        ]
+      },
+      "ash": {
+        "role": "neutral",
+        "displayName": "Ash (dark theme)",
+        "canonical": "hsl(240 5% 64.9%)",
+        "cssVar": "--muted-foreground",
+        "tonalRamp": [
+          "#252528",
+          "#3d3d42",
+          "#55555d",
+          "#6d6d78",
+          "#8f8f99",
+          "#afafb6",
+          "#d2d2d5",
+          "#f2f2f3"
+        ]
+      },
+      "oat": {
+        "role": "neutral",
+        "displayName": "Oat",
+        "canonical": "hsl(60 9% 93.5%)",
+        "cssVar": "--muted",
+        "tonalRamp": [
+          "#292924",
+          "#44443b",
+          "#606052",
+          "#7d7d69",
+          "#9d9d8b",
+          "#b8b8ad",
+          "#d6d6d1",
+          "#f3f3f2"
+        ]
+      },
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Charcoal (dark theme)",
+        "canonical": "hsl(0 0% 10.2%)",
+        "cssVar": "--muted",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#949494",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "hsl(60 4% 90.6%)",
+        "cssVar": "--border",
+        "tonalRamp": [
+          "#272725",
+          "#42423e",
+          "#5c5c56",
+          "#77776e",
+          "#989890",
+          "#b5b5b0",
+          "#d5d5d2",
+          "#f3f3f2"
+        ]
+      },
+      "night-hairline": {
+        "role": "neutral",
+        "displayName": "Night Hairline (dark theme)",
+        "canonical": "hsl(0 0% 14.1%)",
+        "cssVar": "--border",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#949494",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "error-red": {
+        "role": "error",
+        "displayName": "Error Red",
+        "canonical": "hsl(0 63% 53%)",
+        "cssVar": "--destructive",
+        "tonalRamp": [
+          "#371616",
+          "#5f2121",
+          "#8a2828",
+          "#b82e2e",
+          "#d35555",
+          "#da8b8b",
+          "#e7c0c0",
+          "#f7eded"
+        ]
+      },
+      "night-error": {
+        "role": "error",
+        "displayName": "Night Error (dark theme)",
+        "canonical": "hsl(0 83% 67%)",
+        "cssVar": "--destructive",
+        "tonalRamp": [
+          "#3c1010",
+          "#691717",
+          "#9a1919",
+          "#ce1717",
+          "#e74141",
+          "#e77e7e",
+          "#edbaba",
+          "#f9ecec"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Homepage headline only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Post titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section headings and h2 in posts."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Featured-card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Post prose at a 36rem measure."
+      },
+      "body-ui": {
+        "displayName": "Body UI",
+        "purpose": "Interface copy outside posts."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Dates, reading time, tag counts."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Inline code and code blocks."
+      }
+    },
+    "shadows": [
+      {
+        "name": "button-lift",
+        "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "purpose": "Filled primary buttons only."
+      },
+      {
+        "name": "control-hairline",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "Outline and secondary buttons, including the search trigger."
+      },
+      {
+        "name": "overlay",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Search dialog only, over a rgb(0 0 0 / 0.8) backdrop."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Tailwind default easing for all colour transitions."
+      },
+      {
+        "name": "duration-colour",
+        "value": "150ms",
+        "purpose": "Hover colour shifts on buttons, rows, cards, tags."
+      },
+      {
+        "name": "duration-link",
+        "value": "200ms",
+        "purpose": "Link colour transitions."
+      },
+      {
+        "name": "view-transition",
+        "value": "Astro view transitions",
+        "purpose": "Post titles and tags morph between list and detail pages via view-transition-name."
+      },
+      {
+        "name": "dialog-enter",
+        "value": "200ms fade + zoom 95% → 100%",
+        "purpose": "Search dialog open/close (tailwindcss-animate)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action per view.",
+      "html": "<button class=\"ds-btn-primary\">Subscribe via RSS</button>",
+      "css": ".ds-btn-primary { font-family: Geist, ui-sans-serif, system-ui, sans-serif; display:inline-flex; align-items:center; height:36px; padding:8px 16px; border:none; border-radius:10px; background:hsl(var(--primary)); color:hsl(var(--primary-foreground)); font-size:14px; font-weight:500; box-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); cursor:pointer; transition:background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background:hsl(var(--primary) / 0.9); } .ds-btn-primary:focus-visible { outline:none; box-shadow:0 0 0 1px hsl(var(--ring)); }"
+    },
+    {
+      "name": "Hero CTA",
+      "kind": "button",
+      "refersTo": "button-primary-cta",
+      "description": "Pill-shaped primary action used in the homepage hero.",
+      "html": "<a class=\"ds-btn-cta\" href=\"#\">Read the blog</a>",
+      "css": ".ds-btn-cta { font-family: Geist, ui-sans-serif, system-ui, sans-serif; display:inline-flex; align-items:center; min-height:44px; padding:0 20px; border-radius:9999px; background:hsl(var(--primary)); color:hsl(var(--primary-foreground)); font-size:14px; font-weight:500; text-decoration:none; box-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); transition:background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-cta:hover { background:hsl(var(--primary) / 0.9); } .ds-btn-cta:focus-visible { outline:2px solid hsl(var(--ring)); outline-offset:4px; }"
+    },
+    {
+      "name": "Ghost Icon Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Header icon controls (theme toggle, menu).",
+      "html": "<button class=\"ds-btn-ghost\" aria-label=\"Toggle theme\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg></button>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border:none; border-radius:10px; background:transparent; color:hsl(var(--foreground)); cursor:pointer; transition:background-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-ghost:hover { background:hsl(var(--accent)); color:hsl(var(--accent-foreground)); } .ds-btn-ghost:focus-visible { outline:none; box-shadow:0 0 0 1px hsl(var(--ring)); }"
+    },
+    {
+      "name": "Tag Pill",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Topic tag with optional mono count.",
+      "html": "<a class=\"ds-tag\" href=\"#\">#flutter <span class=\"ds-tag-count\">5</span></a>",
+      "css": ".ds-tag { font-family: Geist, ui-sans-serif, system-ui, sans-serif; display:inline-flex; align-items:center; gap:6px; padding:2px 10px; border-radius:9999px; background:hsl(var(--accent)); color:hsl(var(--accent-foreground)); font-size:12px; font-weight:400; text-decoration:none; transition:background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-tag:hover { background:hsl(var(--accent) / 0.7); } .ds-tag:focus-visible { outline:2px solid hsl(var(--ring)); outline-offset:2px; } .ds-tag-count { font-family: 'Geist Mono', ui-monospace, monospace; font-size:0.7rem; opacity:0.7; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header wordmark and nav links; active page in Ink, others in Graphite.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">andrew do</a><a class=\"ds-nav-link ds-active\" href=\"#\" aria-current=\"page\">Posts</a><a class=\"ds-nav-link\" href=\"#\">Tags</a><a class=\"ds-nav-link\" href=\"#\">About</a></nav>",
+      "css": ".ds-nav { font-family: Geist, ui-sans-serif, system-ui, sans-serif; display:flex; align-items:center; gap:4px; min-height:64px; padding:0 16px; border-bottom:1px solid hsl(var(--border)); background:hsl(var(--background) / 0.75); backdrop-filter:blur(8px); } .ds-wordmark { margin-right:auto; font-size:15px; font-weight:600; letter-spacing:-0.025em; color:hsl(var(--foreground)); text-decoration:none; } .ds-nav-link { display:flex; align-items:center; min-height:44px; padding:0 12px; border-radius:9999px; font-size:14px; color:hsl(var(--muted-foreground)); text-decoration:none; transition:color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link:hover, .ds-nav-link.ds-active { color:hsl(var(--foreground)); } .ds-nav-link:focus-visible { outline:2px solid hsl(var(--ring)); outline-offset:4px; }"
+    },
+    {
+      "name": "Featured Card",
+      "kind": "card",
+      "refersTo": "featured-card",
+      "description": "Featured post card on the homepage.",
+      "html": "<a class=\"ds-featured\" href=\"#\"><p class=\"ds-meta\">flutter · 6 min read</p><h3 class=\"ds-featured-title\">Mastering State Management in Flutter: A BLoC Pattern Guide</h3><p class=\"ds-featured-desc\">Events in, states out — how BLoC keeps UI logic testable.</p></a>",
+      "css": ".ds-featured { font-family: Geist, ui-sans-serif, system-ui, sans-serif; display:flex; flex-direction:column; gap:8px; max-width:420px; padding:20px; border:1px solid hsl(var(--border)); border-radius:12px; background:hsl(var(--card)); text-decoration:none; transition:border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-featured:hover { border-color:hsl(var(--primary) / 0.5); } .ds-featured:hover .ds-featured-title { color:hsl(var(--primary)); } .ds-featured:focus-visible { outline:2px solid hsl(var(--ring)); outline-offset:4px; } .ds-meta { font-family: 'Geist Mono', ui-monospace, monospace; margin:0; font-size:12px; letter-spacing:0.025em; color:hsl(var(--muted-foreground)); } .ds-featured-title { margin:0; font-size:20px; font-weight:600; line-height:1.375; color:hsl(var(--foreground)); } .ds-featured-desc { margin:0; font-size:14px; color:hsl(var(--muted-foreground)); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }"
+    },
+    {
+      "name": "Post List",
+      "kind": "custom",
+      "refersTo": "post-list",
+      "description": "Signature component: one bordered container of hairline-divided post rows.",
+      "html": "<ul class=\"ds-post-list\"><li><a class=\"ds-row\" href=\"#\"><p class=\"ds-row-meta\">Jul 20, 2026 · 8 min read</p><h3 class=\"ds-row-title\">Android App Structure: An Overview</h3></a></li><li><a class=\"ds-row\" href=\"#\"><p class=\"ds-row-meta\">Aug 14, 2024 · 4 min read</p><h3 class=\"ds-row-title\">Flutter - How to use Future.wait</h3></a></li></ul>",
+      "css": ".ds-post-list { font-family: Geist, ui-sans-serif, system-ui, sans-serif; list-style:none; margin:0; padding:0; max-width:640px; overflow:hidden; border:1px solid hsl(var(--border)); border-radius:12px; background:hsl(var(--card)); } .ds-post-list li + li { border-top:1px solid hsl(var(--border)); } .ds-row { display:flex; flex-direction:column; gap:4px; min-height:44px; padding:16px 20px; text-decoration:none; transition:background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-row:hover { background:hsl(var(--muted) / 0.6); } .ds-row:hover .ds-row-title { color:hsl(var(--primary)); } .ds-row:focus-visible { outline:2px solid hsl(var(--ring)); outline-offset:-2px; } .ds-row-meta { font-family: 'Geist Mono', ui-monospace, monospace; margin:0; font-size:12px; letter-spacing:0.025em; color:hsl(var(--muted-foreground)); } .ds-row-title { margin:0; font-size:16px; font-weight:500; letter-spacing:-0.025em; color:hsl(var(--foreground)); }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "Prose code block on Card White with a hairline border.",
+      "html": "<pre class=\"ds-code\"><code>final results = await Future.wait([\n  fetchUser(),\n  fetchPosts(),\n]);</code></pre>",
+      "css": ".ds-code { font-family: 'Geist Mono', ui-monospace, monospace; margin:0; max-width:560px; padding:44px 16px 16px; border:1px solid hsl(var(--border)); border-radius:12px; background:hsl(var(--card)); color:hsl(var(--foreground)); font-size:14px; line-height:1.7; overflow-x:auto; white-space:pre; }"
+    },
+    {
+      "name": "Search Trigger",
+      "kind": "button",
+      "refersTo": "search-trigger",
+      "description": "Header pill that opens the ⌘K search palette.",
+      "html": "<button class=\"ds-search-trigger\" aria-label=\"Search posts\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><span>Search</span><kbd class=\"ds-kbd\">⌘K</kbd></button>",
+      "css": ".ds-search-trigger { font-family: Geist, ui-sans-serif, system-ui, sans-serif; display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 12px; border:1px solid hsl(var(--input)); border-radius:9999px; background:hsl(var(--background)); color:hsl(var(--muted-foreground)); font-size:12px; font-weight:500; box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05); cursor:pointer; transition:background-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-search-trigger:hover { background:hsl(var(--accent)); color:hsl(var(--accent-foreground)); } .ds-search-trigger:focus-visible { outline:none; box-shadow:0 0 0 1px hsl(var(--ring)); } .ds-kbd { font-family: 'Geist Mono', ui-monospace, monospace; padding:0 6px; border:1px solid hsl(var(--border)); border-radius:4px; background:hsl(var(--muted)); font-size:0.65rem; }"
+    },
+    {
+      "name": "Search Palette",
+      "kind": "custom",
+      "refersTo": "search-dialog",
+      "description": "Command palette dialog: input, mono group label, results with a calm Oat selection.",
+      "html": "<div class=\"ds-palette\" role=\"dialog\" aria-label=\"Search posts\"><div class=\"ds-palette-input\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input placeholder=\"Search posts…\" aria-label=\"Search posts\"></div><p class=\"ds-palette-group\">Results</p><div class=\"ds-palette-item ds-selected\"><span class=\"ds-palette-title\">Flutter - How to use Future.wait</span><span class=\"ds-palette-meta\">Aug 14, 2024</span></div><div class=\"ds-palette-item\"><span class=\"ds-palette-title\">Mastering State Management in Flutter: A BLoC Pattern Guide</span><span class=\"ds-palette-meta\">Mar 26, 2025</span></div></div>",
+      "css": ".ds-palette { font-family: Geist, ui-sans-serif, system-ui, sans-serif; width:100%; max-width:576px; overflow:hidden; border:1px solid hsl(var(--border)); border-radius:12px; background:hsl(var(--background)); box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); } .ds-palette-input { display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-bottom:1px solid hsl(var(--border)); color:hsl(var(--muted-foreground)); } .ds-palette-input input { flex:1; border:none; background:transparent; color:hsl(var(--foreground)); font:inherit; font-size:14px; outline:none; } .ds-palette-input input::placeholder { color:hsl(var(--muted-foreground)); } .ds-palette-group { font-family: 'Geist Mono', ui-monospace, monospace; margin:8px 0 4px; padding:0 16px; font-size:12px; color:hsl(var(--muted-foreground)); } .ds-palette-item { display:flex; flex-direction:column; gap:4px; margin:0 8px; padding:10px 12px; border-radius:8px; cursor:pointer; } .ds-palette-item:last-child { margin-bottom:8px; } .ds-palette-item:hover, .ds-palette-item.ds-selected { background:hsl(var(--muted)); } .ds-palette-title { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-size:14px; font-weight:500; color:hsl(var(--foreground)); } .ds-palette-meta { font-family: 'Geist Mono', ui-monospace, monospace; font-size:12px; color:hsl(var(--muted-foreground)); }"
+    },
+    {
+      "name": "Table of Contents",
+      "kind": "nav",
+      "refersTo": "toc-link",
+      "description": "Sticky post sidebar; the active section gets an amber bar and amber text.",
+      "html": "<nav class=\"ds-toc\" aria-label=\"On this page\"><p class=\"ds-toc-heading\">On this page</p><ol class=\"ds-toc-list\"><li><a class=\"ds-toc-link\" href=\"#\">What Future.wait does</a></li><li><a class=\"ds-toc-link ds-toc-active\" href=\"#\" aria-current=\"location\">Handling errors</a></li><li class=\"ds-toc-sub\"><a class=\"ds-toc-link\" href=\"#\">eagerError</a></li><li><a class=\"ds-toc-link\" href=\"#\">Summary</a></li></ol></nav>",
+      "css": ".ds-toc { font-family: Geist, ui-sans-serif, system-ui, sans-serif; width:224px; padding-left:16px; border-left:1px solid hsl(var(--border)); } .ds-toc-heading { font-family: 'Geist Mono', ui-monospace, monospace; margin:0 0 8px; font-size:12px; letter-spacing:0.025em; text-transform:uppercase; color:hsl(var(--muted-foreground)); } .ds-toc-list { display:flex; flex-direction:column; margin:0; padding:0; list-style:none; font-size:14px; } .ds-toc-sub { padding-left:12px; } .ds-toc-link { display:block; margin-left:-17px; padding:6px 0 6px 15px; border-left:2px solid transparent; color:hsl(var(--muted-foreground)); text-decoration:none; transition:color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-toc-link:hover { color:hsl(var(--foreground)); } .ds-toc-link:focus-visible { outline:2px solid hsl(var(--ring)); outline-offset:4px; } .ds-toc-link.ds-toc-active { border-left-color:hsl(var(--primary)); color:hsl(var(--primary)); font-weight:500; }"
+    },
+    {
+      "name": "Footer",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Hairline-topped footer with the coffee fact, copyright and ghost social icons.",
+      "html": "<footer class=\"ds-footer\"><div class=\"ds-footer-copy\"><p>(fact): Addicted to coffee and fixing bugs at 3AM</p><p>© 2026 Andrew Do. All rights reserved.</p></div><div class=\"ds-footer-socials\"><a class=\"ds-social\" href=\"#\" aria-label=\"Andrew Do on Github\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\"><path d=\"M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z\"/></svg></a></div></footer>",
+      "css": ".ds-footer { font-family: Geist, ui-sans-serif, system-ui, sans-serif; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:32px 16px; border-top:1px solid hsl(var(--border)); } .ds-footer-copy { display:flex; flex-direction:column; gap:4px; font-size:14px; color:hsl(var(--muted-foreground)); } .ds-footer-copy p { margin:0; } .ds-footer-socials { display:flex; gap:4px; } .ds-social { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:10px; transition:background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-social svg { fill:hsl(var(--foreground)); transition:fill 150ms cubic-bezier(0.4,0,0.2,1); } .ds-social:hover { background:hsl(var(--accent)); } .ds-social:hover svg { fill:hsl(var(--primary)); } .ds-social:focus-visible { outline:none; box-shadow:0 0 0 1px hsl(var(--ring)); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Coffee-Stained Logbook",
+    "overview": "This is an engineer's working logbook: plain pages of notes, written down as things get built, with one warm coffee mark as the only colour. The page is near-white stone paper with near-black ink. A single roast-amber accent marks what you can act on: links, the current hover target, list markers, the call to action. Everything else stays neutral, so the long technical posts and their code blocks get the reader's full attention.\n\nThe system is quiet and exact. Surfaces are flat and separated by hairline borders, not shadows. Hover states change colour, never position. One sans family, Geist, does all the writing; its mono sibling appears only where something is a measurement (dates, reading time, tag counts) or code. Dark mode is the same logbook at 3AM: espresso-black page, steam-white ink, and the amber turns into a lighter crema so it still glows against the dark.\n\nDensity is relaxed in the reading column (18px body on a 32px line, 36rem measure) and compact in lists and navigation, where rows are scanned rather than read.",
+    "keyCharacteristics": [
+      "One accent hue (amber, ~35°) across both themes; every other surface is neutral.",
+      "Flat surfaces with 1px hairline borders; shadows are almost absent.",
+      "Geist for everything; Geist Mono only for metadata and code.",
+      "12px corners on containers, full pills on small controls.",
+      "Light and dark themes are designed as pairs, token for token."
+    ],
+    "rules": [
+      {
+        "name": "The One Roast Rule",
+        "body": "Amber is the only hue in the system. No second accent, no blue links, no gradient. If something needs emphasis and isn't interactive, use weight or size, not colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paired Token Rule",
+        "body": "Every colour exists as a light/dark pair under the same CSS variable (`--primary`, `--muted`, etc. in `src/styles/base.css`, stored as HSL channels). New colours are added as a pair or not at all.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Means Measured Rule",
+        "body": "Geist Mono appears only for dates, durations, counts, and code. It is never used to make plain text look \"technical\".",
+        "section": "typography"
+      },
+      {
+        "name": "The Measure Rule",
+        "body": "Prose lines stay under 80 characters. Measure the column in rem, not `ch`: Geist's zero is wide, so 68ch came out at about 95 characters. Headings use `text-wrap: balance`.",
+        "section": "typography"
+      },
+      {
+        "name": "The Diacritics Rule",
+        "body": "All type must render Vietnamese diacritics cleanly; tight negative tracking (-0.035em) is reserved for 2.25rem and larger, where stacked accents still have room.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ink-on-Paper Rule",
+        "body": "Surfaces in the page never float. Separate things with a hairline or a tone step, not a shadow. Hover changes colour (border to 50% amber, row to a muted tint), never elevation or position. Only a modal overlay, which sits above the page rather than in it, gets a real shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use the CSS variables in `src/styles/base.css` through Tailwind tokens (`bg-card`, `text-primary`, `border-border`); never hard-code a hex.",
+      "**Do** define every new colour as a light/dark pair.",
+      "**Do** separate surfaces with a 1px Hairline border and a tone step.",
+      "**Do** keep prose at a 36rem measure and 18px on a 32px line.",
+      "**Do** keep interactive targets at least 44px tall.",
+      "**Do** keep Geist Mono for dates, durations, counts, and code only."
+    ],
+    "donts": [
+      "**Don't** introduce a second accent hue or gradients; amber is the only colour.",
+      "**Don't** add shadows to cards or lift elements on hover; hover changes colour only. The Overlay shadow is for modal dialogs alone.",
+      "**Don't** use any typeface other than Geist and Geist Mono.",
+      "**Don't** apply tight negative tracking to text smaller than 2.25rem."
+    ]
+  }
+}

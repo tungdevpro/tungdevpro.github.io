@@ -9,6 +9,7 @@ draft: false
 tags:
   - swiftui, binding
 description: ""
+lang: vi
 ---
 
 Trong SwiftUI, `@Binding` được sử dụng để tạo một liên kết hai chiều giữa các dữ liệu. Điều này cho phép bạn truy cập và chỉnh sửa dữ liệu từ nhiều nơi mà không cần truyền dữ liệu qua lại giữa chúng.

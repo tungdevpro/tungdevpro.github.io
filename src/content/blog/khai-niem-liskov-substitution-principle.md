@@ -9,6 +9,10 @@ draft: false
 tags:
   - solid, liskov, lsp
 description: ""
+lang: vi
+series:
+  name: "SOLID principles"
+  part: 4
 ---
 
 Chữ "L" trong nguyên lý SOLID đề cập đến "Liskov Substitution Principle"
