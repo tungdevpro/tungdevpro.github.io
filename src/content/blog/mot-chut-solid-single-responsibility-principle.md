@@ -9,9 +9,13 @@ draft: false
 tags:
   - solid, srp
 description: ""
+lang: vi
+series:
+  name: "SOLID principles"
+  part: 2
 ---
 
-# Nói về Single Responsibility Principle (SRP)
+## Nói về Single Responsibility Principle (SRP)
 
 Đươc Robert C. Martin (hay còn đươợc gọi là Uncle Bob) giới thiệu vào năm 2003. Single Responsibility Principle viết tắt là **SRP**. Trong nguyên lý này thì một class chỉ nên có một reason (lí do) để thay đổi hay còn được hiểu là mỗi class chỉ nên có duy nhất một nhiệm vụ.
 
@@ -71,7 +75,7 @@ class AuthRepository {
   } 
 ```
 
-### Kết
+## Kết
 Ở trên mỗi class có một nhiệm vụ riêng, khiến source trở nên *easy-to-read* (dễ đọc) và *easy-to-maintain* (dễ bảo trì) và unit test trở nên dễ dàng hơn.
 Nếu bài viết còn nhiều thiếu sót thì hãy ping mình qua mail hay fb để mình khắc phục nhé.
 

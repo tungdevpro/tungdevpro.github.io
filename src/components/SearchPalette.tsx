@@ -92,7 +92,7 @@ export default function SearchPalette() {
         >
           <Search />
           <span className="hidden sm:inline">Search</span>
-          <kbd className="hidden rounded border border-border bg-muted px-1.5 font-mono text-[0.65rem] sm:inline">
+          <kbd className="hidden rounded border border-border bg-muted px-1.5 font-mono text-xs sm:inline">
             {shortcut}
           </kbd>
         </Button>

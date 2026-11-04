@@ -31,7 +31,8 @@ export default defineConfig({
         light: "github-light",
         dark: "github-dark-dimmed",
       },
-      wrap: true,
+      // Code scrolls sideways instead of wrapping, so indentation stays readable.
+      wrap: false,
     },
   },
   vite: {

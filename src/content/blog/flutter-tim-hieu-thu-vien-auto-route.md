@@ -9,11 +9,15 @@ draft: false
 tags:
   - flutter
 description: ""
+lang: vi
+series:
+  name: "auto_route"
+  part: 1
 ---
 
 Hello anh em, đợt tới mình có join một project về education và impl dựa trên một bộ base do anh Lead bên mình dựng, trong đó có sử dụng plugin là `auto_route`. Và nay chúng ta sẽ tìm hiểu về nó
 
-### Mở bát
+## Mở bát
 `auto_route` là gì: 
 
 Là một thư viện trong Flutter được sử dụng để quản lý điều hướng trong ứng dụng của bạn. Nó cho phép bạn xác định các tuyến đường của ứng dụng một cách dễ dàng và an toàn, đồng thời tự động sinh mã để tạo ra các hàm điều hướng và các lớp tương ứng.

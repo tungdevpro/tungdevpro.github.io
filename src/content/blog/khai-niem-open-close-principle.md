@@ -9,6 +9,10 @@ draft: false
 tags:
   - solid, openclose, ocp
 description: ""
+lang: vi
+series:
+  name: "SOLID principles"
+  part: 3
 ---
 
 Chữ "O" trong nguyên lý SOLID đề cập đến "Open/Closed Principle" (Nguyên lý mở đóng). Nguyên lý này được định nghĩa bởi Bertrand Meyer vào năm 1988 và đóng một vai trò quan trọng trong việc thiết kế phần mềm linh hoạt và dễ bảo trì.

@@ -9,6 +9,7 @@ draft: false
 tags:
   - golang, pubsub
 description: ""
+lang: vi
 ---
 
 

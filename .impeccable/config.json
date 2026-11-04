@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-11-04T02:33:06.404Z",
+        "reason": "Brand font, documented in DESIGN.md"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-11-04T02:33:06.417Z",
+        "reason": "Brand mono font for code and metadata, documented in DESIGN.md"
+      }
+    ]
+  }
+}

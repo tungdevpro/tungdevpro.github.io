@@ -1,0 +1,92 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import postFilter from "@utils/postFilter";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+
+const published = (await getCollection("blog"))
+  .filter(postFilter)
+  .sort((a, b) => a.data.pubDatetime.getTime() - b.data.pubDatetime.getTime());
+
+type Link = { label: string; post: CollectionEntry<"blog"> } | undefined;
+
+const series = post.data.series;
+let heading: string;
+let previous: Link;
+let next: Link;
+let seriesTotal = 0;
+
+if (series) {
+  const parts = published
+    .filter((p) => p.data.series?.name === series.name)
+    .sort((a, b) => a.data.series!.part - b.data.series!.part);
+  const index = parts.findIndex((p) => p.slug === post.slug);
+  seriesTotal = parts.length;
+  heading = `Part ${series.part} of ${seriesTotal} · ${series.name}`;
+  if (index > 0) previous = { label: "Previous part", post: parts[index - 1] };
+  if (index < parts.length - 1)
+    next = { label: "Next part", post: parts[index + 1] };
+} else {
+  const index = published.findIndex((p) => p.slug === post.slug);
+  heading = "Keep reading";
+  if (index > 0) previous = { label: "Older post", post: published[index - 1] };
+  if (index >= 0 && index < published.length - 1)
+    next = { label: "Newer post", post: published[index + 1] };
+}
+
+const links = [previous, next].filter(Boolean) as NonNullable<Link>[];
+---
+
+{
+  links.length > 0 && (
+    <nav class="end-nav" aria-labelledby="end-nav-heading">
+      <h2 id="end-nav-heading" class="meta-text end-nav-heading">
+        {heading}
+      </h2>
+      <ul class:list={["end-nav-list", { single: links.length === 1 }]}>
+        {links.map((link) => (
+          <li class:list={{ "is-next": link === next }}>
+            <a href={`/posts/${link.post.slug}/`} class="end-nav-link group">
+              <span class="meta-text">
+                {link === previous && <span aria-hidden="true">← </span>}
+                {link.label}
+                {link === next && <span aria-hidden="true"> →</span>}
+              </span>
+              <span class="end-nav-title" lang={link.post.data.lang}>
+                {link.post.data.title}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .end-nav-heading {
+    @apply mb-3 font-normal;
+  }
+  .end-nav-list {
+    @apply grid divide-y divide-border overflow-hidden rounded-xl border border-border bg-card sm:grid-cols-2 sm:divide-x sm:divide-y-0;
+  }
+  .end-nav-list.single {
+    @apply sm:grid-cols-1;
+  }
+  .is-next {
+    @apply sm:col-start-2 sm:text-right;
+  }
+  .single .is-next {
+    @apply sm:col-start-1 sm:text-left;
+  }
+  .end-nav-link {
+    @apply flex h-full min-h-11 flex-col gap-1 px-5 py-4 hover:bg-muted/60 focus-visible:outline-offset-[-2px];
+  }
+  .end-nav-title {
+    @apply text-base font-medium leading-snug tracking-tight text-foreground [text-wrap:balance] group-hover:text-primary;
+  }
+</style>

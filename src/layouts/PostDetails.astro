@@ -7,10 +7,12 @@ import TableOfContents from "@components/TableOfContents.astro";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
+import PostEndNav from "@components/PostEndNav.astro";
 import PostViews from "@components/PostViews";
 import formatDate from "@utils/formatDate";
 import getReadingTime from "@utils/getReadingTime";
 import getTocHeadings from "@utils/getTocHeadings";
+import getExcerpt from "@utils/getExcerpt";
 import { LOCALE, SITE } from "@config";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -30,6 +32,7 @@ const {
   pubDatetime,
   modDatetime,
   tags,
+  lang,
 } = post.data;
 
 const { Content, headings } = await post.render();
@@ -46,7 +49,7 @@ const ogUrl = new URL(
 const layoutProps = {
   title: `${title} | ${SITE.title}`,
   author,
-  description,
+  description: description.trim() || getExcerpt(post.body) || undefined,
   pubDatetime,
   modDatetime,
   canonicalURL,
@@ -56,8 +59,8 @@ const layoutProps = {
 ---
 
 <Layout {...layoutProps}>
-  <Header />
-  <main id="main-content">
+  <Header activeNav="posts" />
+  <main id="main-content" tabindex="-1">
     <nav class="post-crumb meta-text" aria-label="breadcrumb">
       <a href="/posts/">← Posts</a>
       {
@@ -70,8 +73,16 @@ const layoutProps = {
       }
     </nav>
     <header class="post-header">
-      <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-      <p class="post-description">{description}</p>
+      <h1 transition:name={slugifyStr(title)} class="post-title" {lang}>
+        {title}
+      </h1>
+      {
+        description.trim() && (
+          <p class="post-description" {lang}>
+            {description}
+          </p>
+        )
+      }
       <p class="post-meta meta-text">
         <time datetime={pubDatetime.toISOString()}>
           {formatDate(pubDatetime, LOCALE.langTag)}
@@ -88,8 +99,7 @@ const layoutProps = {
         }
         <span aria-hidden="true">·</span>
         <span>{readingTime} min read</span>
-        <span aria-hidden="true">·</span>
-        <PostViews slug={post.slug} client:load />
+        <PostViews slug={post.slug} client:visible />
       </p>
       <ul class="post-tags">
         {tags.map((tag) => <Tag tag={slugifyStr(tag)} />)}
@@ -97,7 +107,7 @@ const layoutProps = {
     </header>
 
     <div class:list={["post-layout", { "has-toc": tocHeadings.length > 0 }]}>
-      <div class="min-w-0">
+      <div class="post-column min-w-0">
         {
           tocHeadings.length > 0 && (
             <div class="lg:hidden">
@@ -105,7 +115,7 @@ const layoutProps = {
             </div>
           )
         }
-        <article id="article" role="article" class="prose">
+        <article id="article" class="prose" {lang}>
           <Content />
         </article>
       </div>
@@ -119,19 +129,26 @@ const layoutProps = {
     </div>
 
     <footer class="post-footer">
-      <ul class="post-tags">
-        {tags.map((tag) => <Tag tag={slugifyStr(tag)} transition={false} />)}
-      </ul>
+      <p class="post-author">
+        Written by <span class="post-author-name">{SITE.title}</span>, usually
+        over coffee at 3AM.
+        <a href="/about/" class="post-author-more">More about me</a>
+      </p>
+      <PostEndNav {post} />
       <div class="post-footer-row">
         <ShareLinks />
         <button
           id="back-to-top"
           type="button"
-          class={cn(buttonVariants({ variant: "ghost" }), "min-h-11")}
+          class={cn(
+            buttonVariants({ variant: "ghost" }),
+            "-mr-4 ml-auto min-h-11 text-muted-foreground",
+          )}
         >
-          ↑ Back to top
+          Back to top
         </button>
       </div>
+      <p id="post-status" class="sr-only" aria-live="polite"></p>
     </footer>
   </main>
   <Footer />
@@ -140,6 +157,9 @@ const layoutProps = {
 <style>
   main {
     @apply mx-auto w-full max-w-5xl px-4 pb-12;
+  }
+  main:focus {
+    @apply outline-none;
   }
   .post-crumb {
     @apply mt-8;
@@ -151,7 +171,7 @@ const layoutProps = {
     @apply max-w-3xl pt-4;
   }
   .post-title {
-    @apply text-4xl font-semibold leading-[1.1] sm:text-5xl;
+    @apply text-4xl font-semibold leading-[1.1] [text-wrap:balance] sm:text-5xl;
   }
   .post-description {
     @apply mt-4 text-lg leading-8 text-muted-foreground;
@@ -168,24 +188,38 @@ const layoutProps = {
   .post-layout.has-toc {
     @apply lg:grid lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-12;
   }
+  /* 36rem of Geist at 18px ≈ 72–75 characters per line. */
   .post-layout .prose {
-    @apply max-w-[68ch];
+    @apply max-w-[36rem];
   }
   .post-footer {
-    @apply mt-12 max-w-[68ch] border-t border-border pt-6;
+    @apply mt-16 flex max-w-[36rem] flex-col gap-8 border-t border-border pt-8;
+  }
+  .post-author {
+    @apply text-base leading-7;
+  }
+  .post-author-name {
+    @apply font-medium text-foreground;
+  }
+  .post-author-more {
+    @apply whitespace-nowrap text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary;
   }
   .post-footer-row {
-    @apply mt-6 flex flex-col-reverse items-center justify-between gap-4 sm:flex-row;
+    @apply flex flex-wrap items-center justify-between gap-x-4 gap-y-2;
   }
 </style>
 
 <script is:inline>
-  /** Create a progress indicator
-   *  at the top */
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  /** Reading-progress bar along the top edge (decorative, hidden from AT). */
   function createProgressBar() {
     const progressContainer = document.createElement("div");
     progressContainer.className =
       "progress-container fixed top-0 z-30 h-[3px] w-full bg-transparent";
+    progressContainer.setAttribute("aria-hidden", "true");
     const progressBar = document.createElement("div");
     progressBar.className = "progress-bar h-full w-0 bg-primary";
     progressBar.id = "myBar";
@@ -194,96 +228,164 @@ const layoutProps = {
   }
   createProgressBar();
 
-  /** Update the progress bar
-   *  when user scrolls */
   function updateScrollProgress() {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    if (document) {
-      const myBar = document.getElementById("myBar");
-      if (myBar) {
-        myBar.style.width = scrolled + "%";
-      }
-    }
+    const bar = document.getElementById("myBar");
+    if (!bar) return;
+    const root = document.documentElement;
+    const scrollable = root.scrollHeight - root.clientHeight;
+    const scrolled = scrollable > 0 ? (root.scrollTop / scrollable) * 100 : 0;
+    bar.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
   }
-  document.addEventListener("scroll", updateScrollProgress);
+  // View transitions re-run this script on every visit; bind the listener once.
+  if (!window.__postScrollBound) {
+    window.__postScrollBound = true;
+    document.addEventListener("scroll", updateScrollProgress, {
+      passive: true,
+    });
+  }
+  updateScrollProgress();
 
-  /** Attaches links to headings in the document,
-   *  allowing sharing of sections easily */
+  /**
+   * Section links on headings, for mouse users who want to share a section.
+   * Hidden from assistive tech and the tab order: inside a heading, a named
+   * link would be read as part of the heading's own name. Keyboard and
+   * screen-reader users reach sections through the table of contents.
+   */
   function addHeadingLinks() {
-    let headings = Array.from(
-      document.querySelectorAll(
-        "#article h2, #article h3, #article h4, #article h5, #article h6",
-      ),
+    const headings = document.querySelectorAll(
+      "#article h2, #article h3, #article h4, #article h5, #article h6",
     );
-    for (let heading of headings) {
+    for (const heading of headings) {
+      if (!heading.id) continue;
       heading.classList.add("group");
-      let link = document.createElement("a");
-      link.innerText = "#";
-      link.className = "heading-link hidden group-hover:inline-block ml-2";
-      link.href = "#" + heading.id;
-      link.ariaHidden = "true";
+      const link = document.createElement("a");
+      link.textContent = "#";
+      link.className = "heading-link";
+      link.href = `#${heading.id}`;
+      link.setAttribute("aria-hidden", "true");
+      link.tabIndex = -1;
       heading.appendChild(link);
     }
   }
   addHeadingLinks();
 
-  /** Attaches copy buttons to code blocks in the document,
-   * allowing users to copy code easily. */
+  /** Copy buttons on code blocks, announced to screen readers. */
   function attachCopyButtons() {
-    let copyButtonLabel = "Copy";
-    let codeBlocks = Array.from(document.querySelectorAll("pre"));
+    const copyButtonLabel = "Copy";
+    const status = document.getElementById("post-status");
+    if (!status) return;
 
-    for (let codeBlock of codeBlocks) {
-      let wrapper = document.createElement("div");
-      wrapper.style.position = "relative";
+    for (const codeBlock of document.querySelectorAll("#article pre")) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-block";
 
-      let copyButton = document.createElement("button");
-      copyButton.className =
-        "copy-code focus-outline absolute right-3 top-3 inline-flex min-h-8 items-center after:absolute after:-inset-2 after:content-[''] rounded-md border border-border bg-background px-2.5 font-sans text-xs font-medium text-muted-foreground transition hover:text-foreground";
+      // Shiki sets data-language; untagged fences come through as "plaintext".
+      const lang = codeBlock.dataset.language;
+      const hasLang = lang && !["plaintext", "text", "txt"].includes(lang);
+      const name = hasLang ? `${lang} code` : "code";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = "copy-code";
       copyButton.type = "button";
-      copyButton.innerText = copyButtonLabel;
+      copyButton.textContent = copyButtonLabel;
+      copyButton.setAttribute("aria-label", `Copy ${name}`);
+
+      // Focusable so keyboard users can scroll wide code; named as a region.
       codeBlock.setAttribute("tabindex", "0");
-      codeBlock.appendChild(copyButton);
+      codeBlock.setAttribute("role", "region");
+      codeBlock.setAttribute(
+        "aria-label",
+        name.charAt(0).toUpperCase() + name.slice(1),
+      );
 
-      // wrap codebock with relative parent element
-      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
       wrapper.appendChild(codeBlock);
+      if (hasLang) {
+        const label = document.createElement("span");
+        label.className = "code-lang";
+        label.textContent = lang;
+        label.setAttribute("aria-hidden", "true");
+        wrapper.appendChild(label);
+      }
+      wrapper.appendChild(copyButton);
 
-      copyButton.addEventListener("click", async () => {
-        await copyCode(codeBlock, copyButton);
+      // Fade the right edge while there is more code to scroll to.
+      const updateScrollHint = () => {
+        const remaining =
+          codeBlock.scrollWidth - codeBlock.clientWidth - codeBlock.scrollLeft;
+        wrapper.dataset.scrollMore = String(remaining > 2);
+      };
+      codeBlock.addEventListener("scroll", updateScrollHint, {
+        passive: true,
       });
-    }
+      new ResizeObserver(updateScrollHint).observe(codeBlock);
+      updateScrollHint();
 
-    async function copyCode(block, button) {
-      let code = block.querySelector("code");
-      let text = code?.innerText;
-
-      await navigator.clipboard.writeText(text ?? "");
-
-      // visual feedback that task is completed
-      button.innerText = "Copied";
-
-      setTimeout(() => {
-        button.innerText = copyButtonLabel;
-      }, 700);
+      let resetTimer;
+      copyButton.addEventListener("click", async () => {
+        const text = codeBlock.querySelector("code")?.innerText ?? "";
+        let message;
+        try {
+          await navigator.clipboard.writeText(text);
+          copyButton.textContent = "Copied";
+          message = "Code copied to clipboard";
+        } catch {
+          copyButton.textContent = "Press Ctrl+C";
+          message = "Copy failed. Select the code and press Control C.";
+          const range = document.createRange();
+          range.selectNodeContents(
+            codeBlock.querySelector("code") ?? codeBlock,
+          );
+          const selection = window.getSelection();
+          selection?.removeAllRanges();
+          selection?.addRange(range);
+        }
+        status.textContent = message;
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
+          copyButton.textContent = copyButtonLabel;
+          status.textContent = "";
+        }, 2000);
+      });
     }
   }
   attachCopyButtons();
 
-  /** Scrolls the document to the top when
-   * the "Back to Top" button is clicked. */
+  /** "Copy link" in the share row. */
+  function copyLink() {
+    const button = document.querySelector("[data-copy-link]");
+    const label = button?.querySelector("[data-copy-label]");
+    const status = document.getElementById("post-status");
+    if (!button || !label || !status) return;
+    let resetTimer;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        label.textContent = "Link copied";
+        status.textContent = "Link copied to clipboard";
+      } catch {
+        label.textContent = "Copy failed";
+        status.textContent =
+          "Copy failed. Copy the address from the address bar.";
+      }
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        label.textContent = "Copy link";
+        status.textContent = "";
+      }, 2000);
+    });
+  }
+  copyLink();
+
+  /** Back to top: scroll up and move keyboard focus with it. */
   function backToTop() {
     document.querySelector("#back-to-top")?.addEventListener("click", () => {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      document.getElementById("main-content")?.focus({ preventScroll: true });
     });
   }
   backToTop();
+
   /** Highlights the TOC entry for the heading currently in view. */
   function spyToc() {
     const links = Array.from(document.querySelectorAll("[data-toc-link]"));
@@ -292,9 +394,12 @@ const layoutProps = {
       .map((link) => document.getElementById(link.dataset.tocLink))
       .filter(Boolean);
     const setActive = (id) =>
-      links.forEach((link) =>
-        link.setAttribute("data-active", String(link.dataset.tocLink === id)),
-      );
+      links.forEach((link) => {
+        const active = link.dataset.tocLink === id;
+        link.setAttribute("data-active", String(active));
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
