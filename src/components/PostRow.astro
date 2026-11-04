@@ -1,9 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { LOCALE } from "@config";
-import formatDate from "@utils/formatDate";
-import getReadingTime from "@utils/getReadingTime";
 import { slugifyStr } from "@utils/slugify";
+import PostMeta from "./PostMeta.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -11,26 +9,27 @@ export interface Props {
 }
 
 const { post, headingLevel = "h3" } = Astro.props;
-const { title, description, pubDatetime } = post.data;
+const { title, description, lang } = post.data;
 const Heading = headingLevel;
 ---
 
 <li>
   <a href={`/posts/${post.slug}/`} class="post-row group">
-    <p class="meta-text">
-      <time datetime={pubDatetime.toISOString()}>
-        {formatDate(pubDatetime, LOCALE.langTag)}
-      </time>
-      <span aria-hidden="true"> · </span>
-      {getReadingTime(post.body)} min read
-    </p>
+    <PostMeta {post} />
     <Heading
       class="post-row-title"
       style={`view-transition-name: ${slugifyStr(title)}`}
+      {lang}
     >
       {title}
     </Heading>
-    {description && <p class="post-row-desc">{description}</p>}
+    {
+      description && (
+        <p class="post-row-desc" {lang}>
+          {description}
+        </p>
+      )
+    }
   </a>
 </li>
 

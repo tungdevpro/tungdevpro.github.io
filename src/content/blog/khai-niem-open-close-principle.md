@@ -4,7 +4,7 @@ pubDatetime: 2024-04-23T15:22:00Z
 modDatetime: 2024-04-23T09:12:47.400Z
 title:  SOLID - Open Close Principle
 slug: solid-open-close-principle
-featured: true
+featured: false
 draft: false
 tags:
   - solid, openclose, ocp

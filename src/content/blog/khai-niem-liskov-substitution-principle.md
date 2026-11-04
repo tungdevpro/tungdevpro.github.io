@@ -4,7 +4,7 @@ pubDatetime: 2024-04-24T15:22:00Z
 modDatetime: 2024-04-24T09:12:47.400Z
 title: SOLID - Liskov Substitution Principle
 slug: solid-liskov-substitution-principle
-featured: true
+featured: false
 draft: false
 tags:
   - solid, liskov, lsp

@@ -4,7 +4,7 @@ pubDatetime: 2023-08-15T15:22:00Z
 modDatetime: 2023-08-15T09:12:47.400Z
 title: Some cool stuff in Vue 3
 slug: some-cool-stuff-in-vue-3
-featured: true
+featured: false
 draft: false
 tags:
   - vue

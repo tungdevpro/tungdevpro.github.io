@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { LOCALE } from "@config";
+import formatDate from "@utils/formatDate";
+import getReadingTime from "@utils/getReadingTime";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { pubDatetime, lang } = post.data;
+
+const languageName = { en: "English", vi: "Vietnamese" }[lang];
+---
+
+<p class="meta-text">
+  <time datetime={pubDatetime.toISOString()}>
+    {formatDate(pubDatetime, LOCALE.langTag)}
+  </time>
+  <span aria-hidden="true"> · </span>
+  {getReadingTime(post.body)} min read
+  <span aria-hidden="true"> · </span>
+  <span class="post-lang" aria-hidden="true">{lang.toUpperCase()}</span>
+  <span class="sr-only">in {languageName}</span>
+</p>
+
+<style>
+  .post-lang {
+    @apply text-foreground/70;
+  }
+</style>

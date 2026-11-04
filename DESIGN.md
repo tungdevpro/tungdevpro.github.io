@@ -187,7 +187,7 @@ Density is relaxed in the reading column (18px body on a 32px line, 36rem measur
 A warm-neutral paper-and-ink palette with exactly one coffee-coloured accent, re-tuned for each theme.
 
 ### Primary
-- **Roast Amber** (light theme): links, primary buttons, list markers, focus rings, hover title colour, text selection background, the hero role line. Deep enough to pass contrast as text on stone paper.
+- **Roast Amber** (light theme): links, primary buttons, list markers, focus rings, hover title colour, text selection background. Deep enough to pass contrast as text on stone paper.
 - **Crema** (dark theme): the same roles in dark mode. Lighter and more saturated so it reads as a warm glow on espresso black; paired with **On-Crema** near-black text when it fills a button.
 - **Milk Foam** / **Dark-Roast Tint**: the accent's pale (light) and deep (dark) tint, used as the fill for tag pills and ghost-button hover. Text on it is **Roast Amber Text** / **Crema Text**.
 
@@ -219,7 +219,7 @@ A warm-neutral paper-and-ink palette with exactly one coffee-coloured accent, re
 - **Title** (600, 1.5rem, tight tracking): section headings ("Featured", "Recent writing") and h2 inside posts, which also get a hairline underline and 48px of space above.
 - **Title Small** (600, 1.25rem, snug): featured-card titles. Post-list row titles drop to 1rem / 500.
 - **Body** (400, 1.125rem on a 2rem / 32px line, max 36rem ≈ 72–75 characters): post prose, wrapped with `text-wrap: pretty`. Interface copy outside posts uses 1rem / 1.75.
-- **Label** (Geist Mono 400, 0.75rem, +0.025em, Graphite): dates, reading time, tag counts. The hero role line is the one uppercase mono label (+0.08em, Roast Amber).
+- **Label** (Geist Mono 400, 0.75rem, +0.025em, Graphite): dates, reading time, tag counts, and the EN / VI language marker (slightly darker, 70% Ink). No uppercase eyebrow labels above headings.
 - **Code** (Geist Mono, 0.875em inline / 0.875rem blocks).
 
 ### Named Rules
@@ -233,7 +233,7 @@ A warm-neutral paper-and-ink palette with exactly one coffee-coloured accent, re
 
 One centred column, max 1024px wide with 16px side gutters, used by every page section and the header. Posts narrow the prose and the post footer further to a 36rem measure. At ≥1024px a post with a table of contents becomes a two-column grid: prose plus a 14rem sticky TOC rail with a 48px gap.
 
-The homepage stacks: hero (56px top padding → 96px at ≥640px), a two-column featured grid (one column on mobile, 12px gap), then a single bordered post list. Two breakpoints only: 640px (`sm`) and 1024px (`lg`).
+The homepage stacks: hero (56px top padding → 96px at ≥640px) with the headline, the intro and the coffee line at a 36rem measure, then a two-column featured grid (one column on mobile, 12px gap) of four hand-picked posts (`featured: true`), then a single bordered list of the newest other posts. Two breakpoints only: 640px (`sm`) and 1024px (`lg`).
 
 Interactive targets are at least 44px tall throughout — nav links, the CTA, post rows, and tag pills (enlarged with an invisible hit area).
 
@@ -267,7 +267,8 @@ Quiet, filled once per view.
 - **State:** hover lightens the fill to 70%. A large variant (14px, 4px × 12px padding) is used on the tags index.
 
 ### Cards / Containers
-- **Featured card:** 12px corners, Card White, 1px Hairline, 20px padding. Mono meta line (first tag · reading time), 1.25rem title, two-line clamped description. Hover: border shifts to 50% amber, title turns amber.
+- **Post meta line** (shared by featured cards, post rows, `/posts/` and tag pages): mono "date · N min read · EN|VI". The language marker is hidden from screen readers and replaced by "in English" / "in Vietnamese"; titles carry the post's `lang`.
+- **Featured card:** 12px corners, Card White, 1px Hairline, 20px padding. The shared meta line, a 1.25rem balanced title, two-line clamped description. Hover: border shifts to 50% amber, title turns amber.
 - **Post list:** a single Card White container with 12px corners and a Hairline border; rows divided by hairlines. Each row: mono date · reading time, 1rem/500 title, one-line description. Hover: muted row tint, amber title.
 - **Code block:** Card White fill (not the page tone), 1px Hairline, 12px corners, 16px padding with a 44px top band: the language in mono Graphite on the left (omitted for untagged code), Copy on the right, so the button never covers code. In a post, code may run wider than the prose, up to 46rem, while keeping the prose's left edge. Long lines scroll sideways (never wrap, so indentation stays intact); a 48px right-edge fade appears only while more code is out of view. Each block is a named, focusable region ("Dart code") with a matching "Copy dart code" button. Geist Mono 14px. Copying is announced to screen readers; on failure the code is selected and the button says "Press Ctrl+C". Syntax colours come from Shiki with a separate dark theme.
 
@@ -292,7 +293,7 @@ Shown on posts that have headings.
 
 ### Footer
 - A full-width Hairline top border, then the 1024px container with 32px vertical padding.
-- Left: two Graphite 14px lines, the coffee fact ("Addicted to coffee and fixing bugs at 3AM") and the copyright.
+- Left: the copyright in Graphite 14px. (The coffee line lives in the homepage hero.)
 - Right: social links as 44px ghost icon buttons; icons are 20px Ink and turn Roast Amber on hover.
 - On mobile everything stacks and centres.
 

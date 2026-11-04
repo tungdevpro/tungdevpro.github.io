@@ -4,7 +4,7 @@ pubDatetime: 2024-02-16T15:22:00Z
 modDatetime: 2024-02-16T09:12:47.400Z
 title:  SOLID - Single Responsibility Principle
 slug: solid-single-responsibility-principle
-featured: true
+featured: false
 draft: false
 tags:
   - solid, srp

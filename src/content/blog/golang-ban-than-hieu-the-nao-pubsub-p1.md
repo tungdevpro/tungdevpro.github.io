@@ -4,7 +4,7 @@ pubDatetime: 2023-10-07T15:22:00Z
 modDatetime: 2023-10-07T09:12:47.400Z
 title: Golang - bản thân hiểu thế nào về PubSub 
 slug: golang-hieu-the-nao-ve-pubsub
-featured: true
+featured: false
 draft: false
 tags:
   - golang, pubsub

@@ -5,7 +5,7 @@ modDatetime: 2024-12-04T18:00:47.400Z
 title: Onwership - The Heart of Rust programming
 description: ""
 slug: onwership-the-heart-of-rust-programming
-featured: true
+featured: false
 draft: false
 tags:
   - rust

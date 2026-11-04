@@ -7,20 +7,23 @@ import FeaturedCard from "@components/FeaturedCard.astro";
 import PostRow from "@components/PostRow.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import getHomePosts from "@utils/getHomePosts";
-import { SITE } from "@config";
+import { SITE, SOCIALS } from "@config";
 import { buttonVariants } from "@/components/ui/button";
 
 const posts = await getCollection("blog");
 const { featured, recent } = getHomePosts(getSortedPosts(posts));
+const github = SOCIALS.find(
+  (social) => social.name === "Github" && social.active,
+);
 ---
 
-<Layout>
+<Layout description={SITE.quickIntroduceMySelf}>
   <Header />
   <main id="main-content">
     <section id="hero">
-      <p class="role">{SITE.role}</p>
       <h1>{SITE.headline}</h1>
       <p class="intro">{SITE.quickIntroduceMySelf}</p>
+      <p class="fact">{SITE.fact}</p>
       <div class="hero-actions">
         <a
           href="/posts/"
@@ -29,6 +32,18 @@ const { featured, recent } = getHomePosts(getSortedPosts(posts));
           Read the blog
         </a>
         <a href="/about/" class="about-link">About me</a>
+        {
+          github && (
+            <a
+              href={github.href}
+              class="about-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          )
+        }
       </div>
     </section>
 
@@ -73,14 +88,15 @@ const { featured, recent } = getHomePosts(getSortedPosts(posts));
   #hero {
     @apply pb-8 pt-14 sm:pb-12 sm:pt-24;
   }
-  .role {
-    @apply font-mono text-xs uppercase tracking-[0.08em] text-primary;
-  }
   #hero h1 {
-    @apply mt-3 max-w-3xl text-4xl font-semibold leading-[1.1] sm:text-6xl;
+    @apply max-w-3xl text-4xl font-semibold leading-[1.1] [text-wrap:balance] sm:text-6xl;
   }
+  /* 36rem keeps the intro under 80 characters per line (see DESIGN.md Measure Rule). */
   .intro {
-    @apply mt-5 max-w-[62ch] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8;
+    @apply mt-5 max-w-[36rem] text-base leading-7 text-muted-foreground [text-wrap:pretty] sm:text-lg sm:leading-8;
+  }
+  .fact {
+    @apply mt-3 max-w-[36rem] text-base leading-7 text-foreground sm:text-lg;
   }
   .hero-actions {
     @apply mt-7 flex flex-wrap items-center gap-4;
